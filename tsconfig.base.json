@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org/birthdays/birthdays": ["libs/birthdays/birthdays/src/index.ts"],
-      "@org/calendar/calendar": ["libs/calendar/calendar/src/index.ts"],
+      "@org/birthdays": ["libs/birthdays/src/index.ts"],
+      "@org/calendar": ["libs/calendar/src/index.ts"],
       "@org/shared/api/shared-api": ["libs/shared/api/shared-api/src/index.ts"],
       "@org/shared/ui/shared-ui": ["libs/shared/ui/shared-ui/src/index.ts"]
     }

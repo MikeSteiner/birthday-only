@@ -13,6 +13,8 @@ comes with a LSP for Vim users.
 ## Start the application
 
 Run `npx nx serve birthday-only` to start the development server. Happy coding!
+Run `npm run start:server` to start the json-server as backend server.
+
 
 ## Build for production
 
@@ -61,11 +63,14 @@ It will show tasks that you can run with Nx.
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
 
+## json-server
+https://github.com/typicode/json-server
+
 ## ng-commands
 ```
 nx g @nx/angular:library shared-ui --directory=libs/shared/ui --standalone
 nx g @nx/angular:library shared-api --directory=libs/shared/api --standalone
 
-nx g @nx/angular:library calendar --directory=libs/calendar --standalone
-nx g @nx/angular:library birthdays --directory=libs/birthdays --standalone
+nx g @nx/angular:library calendar --directory=libs --standalone
+nx g @nx/angular:library birthdays --directory=libs --standalone
 ```
