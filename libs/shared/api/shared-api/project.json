@@ -1,0 +1,9 @@
+{
+  "name": "shared-api-shared-api",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/api/shared-api/src",
+  "prefix": "org",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

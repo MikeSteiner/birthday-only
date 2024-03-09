@@ -1,0 +1,9 @@
+{
+  "name": "birthdays-birthdays",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/birthdays/birthdays/src",
+  "prefix": "org",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
