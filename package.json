@@ -6,7 +6,7 @@
     "nx": "nx",
     "start": "nx serve",
     "start:bd": "nx serve birthday-only",
-    "start:server": "json-server db.json"
+        "start:server": "json-server db.json"
   },
   "private": true,
   "dependencies": {
