@@ -3,7 +3,7 @@
 export interface Birthday {
   _id?: string;
   userId: string;
-  name: string;
+  name?: string;
   birthDay: number;    // 1-31
   birthMonth: number;  // 1-12
   birthYear?: number;  // optional
@@ -28,28 +28,27 @@ export interface PushSubscription {
   };
 }
 
-// DTOs
-export interface CreateBirthdayDto {
+export interface CreateBirthdayRequest {
   name: string;
   birthDay: number;
   birthMonth: number;
   birthYear?: number;
 }
 
-export interface UpdateBirthdayDto {
+export interface UpdateBirthdayRequest {
   name?: string;
   birthDay?: number;
   birthMonth?: number;
   birthYear?: number;
 }
 
-export interface RegisterDto {
+export interface RegisterRequest {
   email: string;
   password: string;
   name?: string;
 }
 
-export interface LoginDto {
+export interface LoginRequest {
   email: string;
   password: string;
 }

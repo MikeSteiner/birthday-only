@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CreateBirthdayDto } from './dto/create-birthday.dto';
 import { Birthday, BirthdayDocument } from './schemas/birthday.schema';
 
 @Injectable()
@@ -9,12 +10,11 @@ export class BirthdaysService {
     @InjectModel(Birthday.name) private birthdayModel: Model<BirthdayDocument>
   ) {}
 
-  async create(userId: string, birthdayData: Partial<Birthday>): Promise<Birthday> {
-    const newBirthday = new this.birthdayModel({
-      ...birthdayData,
+  async create(userId: string, dto: CreateBirthdayDto) {
+    return this.birthdayModel.create({
+      ...dto,
       userId,
     });
-    return newBirthday.save();
   }
 
   async findAll(userId: string): Promise<Birthday[]> {
