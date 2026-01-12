@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { LoginDto, RegisterDto, LoginResponse } from '@birthday-app/shared';
+import { RegisterRequest, LoginResponse, LoginRequest } from '@birthday-app/shared';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -20,14 +20,14 @@ export class AuthService {
     private router: Router
   ) {}
 
-  login(credentials: LoginDto): Observable<LoginResponse> {
+  login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${environment.apiUrl}/auth/login`, credentials)
       .pipe(
         tap(response => this.handleAuthSuccess(response))
       );
   }
 
-  register(data: RegisterDto): Observable<LoginResponse> {
+  register(data: RegisterRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${environment.apiUrl}/auth/register`, data)
       .pipe(
         tap(response => this.handleAuthSuccess(response))
