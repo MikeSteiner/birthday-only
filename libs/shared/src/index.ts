@@ -29,7 +29,7 @@ export interface PushSubscription {
 }
 
 export interface CreateBirthdayRequest {
-  name: string;
+  name?: string;
   birthDay: number;
   birthMonth: number;
   birthYear?: number;

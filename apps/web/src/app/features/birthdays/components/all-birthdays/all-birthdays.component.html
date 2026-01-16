@@ -1,0 +1,25 @@
+<section>
+    <h2>All Birthdays</h2>
+
+    @if (birthdays().length > 0) {
+        <div class="birthdays-grid">
+            @for (b of birthdays(); track b._id) {
+                <div class="birthday-card">
+                    <h3>{{ b.name }}</h3>
+
+                    <p>
+                        🎂 {{ b.birthMonth }}/{{ b.birthDay }}
+                        @if (b.birthYear) {
+                            • Born {{ b.birthYear }}
+                        }
+                    </p>
+
+                    <div class="card-actions">
+                        <button class="btn-icon" (click)="edit.emit(b)">✏️</button>
+                        <button class="btn-icon" (click)="remove.emit(b._id)">🗑️</button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</section>

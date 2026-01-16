@@ -1,0 +1,22 @@
+<app-birthdays-header
+        [user]="currentUser()"
+        (logout)="logout()"
+/>
+
+<app-upcoming-birthdays
+        [birthdays]="upcomingBirthdays()"
+/>
+
+<app-all-birthdays
+        [birthdays]="birthdays()"
+        (edit)="openEdit($event)"
+        (remove)="delete($event)"
+/>
+
+<app-modal [open]="showModal()">
+    <app-birthday-form
+            [formData]="formData()"
+            (submit)="submit($event)"
+            (cancel)="closeModal()"
+    />
+</app-modal>

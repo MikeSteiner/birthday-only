@@ -1,0 +1,10 @@
+<header class="header">
+    <h1>🎂 Birthday App</h1>
+
+    @if (user()) {
+        <div class="user">
+            <span>{{ user()!.email }}</span>
+            <button (click)="logout.emit()">Logout</button>
+        </div>
+    }
+</header>

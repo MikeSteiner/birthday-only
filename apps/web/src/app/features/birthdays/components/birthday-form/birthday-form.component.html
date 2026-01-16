@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>
+        Name
+        <input formControlName="name" />
+    </label>
+
+    @if (form.controls.name.touched && form.controls.name.invalid) {
+        <small class="error">Name is required</small>
+    }
+
+    <label>
+        Day
+        <input type="number" formControlName="birthDay" />
+    </label>
+
+    <label>
+        Month
+        <input type="number" formControlName="birthMonth" />
+    </label>
+
+    <label>
+        Year (optional)
+        <input type="number" formControlName="birthYear" />
+    </label>
+
+    <div class="actions">
+        <button type="submit" [disabled]="form.invalid">Save</button>
+        <button type="button" (click)="cancel.emit()">Cancel</button>
+    </div>
+</form>
