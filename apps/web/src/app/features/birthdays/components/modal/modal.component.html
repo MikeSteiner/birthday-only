@@ -1,6 +1,6 @@
 @if (open()) {
-    <div class="backdrop">
-        <div class="modal">
+    <div class="modal-overlay" (click)="close.emit()">
+        <div class="modal" (click)="$event.stopPropagation()">
             <ng-content></ng-content>
         </div>
     </div>

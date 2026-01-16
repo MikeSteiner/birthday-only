@@ -3,7 +3,7 @@
 export interface Birthday {
   _id?: string;
   userId: string;
-  name?: string;
+  name: string;
   birthDay: number;    // 1-31
   birthMonth: number;  // 1-12
   birthYear?: number;  // optional
@@ -29,14 +29,14 @@ export interface PushSubscription {
 }
 
 export interface CreateBirthdayRequest {
-  name?: string;
+  name: string;
   birthDay: number;
   birthMonth: number;
   birthYear?: number;
 }
 
 export interface UpdateBirthdayRequest {
-  name?: string;
+  name: string;
   birthDay?: number;
   birthMonth?: number;
   birthYear?: number;

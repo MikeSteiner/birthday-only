@@ -1,5 +1,8 @@
 <section>
-    <h2>All Birthdays</h2>
+    <div class="section-header">
+        <h2>All Birthdays</h2>
+        <button class="btn-primary" (click)="add.emit()">+ Add Birthday</button>
+    </div>
 
     @if (birthdays().length > 0) {
         <div class="birthdays-grid">
@@ -21,5 +24,7 @@
                 </div>
             }
         </div>
+    } @else {
+        <p class="empty-state">No birthdays yet. Add your first one 🎉</p>
     }
 </section>

@@ -9,14 +9,7 @@
 
 <app-all-birthdays
         [birthdays]="birthdays()"
-        (edit)="openEdit($event)"
         (remove)="delete($event)"
+        (edit)="openEdit($event)"
+        (add)="openAdd()"
 />
-
-<app-modal [open]="showModal()">
-    <app-birthday-form
-            [formData]="formData()"
-            (submit)="submit($event)"
-            (cancel)="closeModal()"
-    />
-</app-modal>

@@ -26,6 +26,7 @@ This file lists additional files and features you may want to add for a producti
 - [ ] Add dark mode
 - [ ] Add mobile breakpoints
 - [ ] Convert to CSS layers
+- [ ] Pass the _id when updating and not use only the name
 
 ### Testing
 

@@ -12,4 +12,5 @@ export class AllBirthdaysComponent {
   readonly birthdays = input<any[]>([]);
   readonly edit = output<any>();
   readonly remove = output<string>();
+  readonly add = output<void>();
 }
