@@ -10,6 +10,7 @@
   gap: 1rem;
 }
 
+// TODO: extract to common place
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -19,6 +20,7 @@
   border-bottom: 1px solid var(--ds-color-special-border);
 }
 
+// TODO: extract to typography
 .ds-h2 {
   margin: 0;
 
