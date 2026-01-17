@@ -7,6 +7,7 @@ import {
   BirthdayDialogInputData,
   BirthdayDialogResultData,
 } from "../../components/birthday-dialog/birthday-dialog.component";
+import { BirthdayFocusCardComponent } from '../../components/birthday-focus-card/birthday-focus-card.component';
 import { DialogService } from "../../components/dialog/dialog.service";
 import { UpcomingBirthdaysComponent } from "../../components/upcoming-birthdays/upcoming-birthdays.component";
 import { BirthdaysStore } from "../../state/bithdays.store";
@@ -14,7 +15,12 @@ import { BirthdaysStore } from "../../state/bithdays.store";
 @Component({
   selector: "app-birthdays-list-page",
   standalone: true,
-  imports: [CommonModule, UpcomingBirthdaysComponent, AllBirthdaysComponent],
+  imports: [
+    CommonModule,
+    UpcomingBirthdaysComponent,
+    AllBirthdaysComponent,
+    BirthdayFocusCardComponent,
+  ],
   providers: [BirthdaysStore],
   templateUrl: "./birthdays-list-page.component.html",
   styleUrls: ["./birthdays-list-page.component.scss"],

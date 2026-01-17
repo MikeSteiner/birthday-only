@@ -1,8 +1,14 @@
+<section class="dashboard-top__section">
 
+    <!-- Left: Upcoming Birthdays (2/3 width) -->
+    <app-upcoming-birthdays
+            [birthdays]="upcomingBirthdays()"
+    />
 
-<app-upcoming-birthdays
-        [birthdays]="upcomingBirthdays()"
-/>
+    <app-birthday-focus-card
+            [birthday]="upcomingBirthdays()[0]"
+    />
+</section>
 
 <app-all-birthdays
         [birthdays]="birthdays()"

@@ -3,10 +3,13 @@
 @forward './web/helpers';
 @forward './web/layout';
 
+@forward './web/ds-badge';
+@forward './web/ds-button';
 @forward './web/ds-card';
 @forward './web/ds-dialog';
-@forward './web/ds-button';
 @forward './web/ds-input';
+@forward './web/ds-variables';
+@forward './web/ds-colors';
 
 * {
   box-sizing: border-box;

@@ -1,43 +1,43 @@
 @use './helpers';
 
 :root {
-  --ds-tag-padding: 0.375rem 1rem;
-  --ds-tag-border-radius: --ds-radius__full;
-  --ds-tag-font-style: italic;
+  --ds-badge-padding: 0.375rem 1rem;
+  --ds-badge-border-radius: var(--ds-radius__full);
+  --ds-badge-font-style: italic;
 
-  --ds-tag-row-gap: 0;
-  --ds-tag-column-gap: 0.75rem; // 12px = 0.75rem;
+  --ds-badge-row-gap: 0;
+  --ds-badge-column-gap: 0.75rem; // 12px = 0.75rem;
 
-  --ds-tag-text-color: var(--ds-color-text-primary);
-  --ds-tag-background-color: var(--ds-color-background-bg3);
+  --ds-badge-text-color: var(--ds-color-text-primary);
+  --ds-badge-background-color: var(--ds-color-background-bg3);
 }
 
-.ds-tag {
-  &[data-otp-color="green"] {
-    --ds-tag-text-color: var(--ds-color-main-green);
-    --ds-tag-background-color: rgba(var(--ds-color-main-green-rgb), 0.10);
+.ds-badge {
+  &[data-ds-color="green"] {
+    --ds-badge-text-color: var(--ds-color-main-green);
+    --ds-badge-background-color: rgba(var(--ds-color-main-green-rgb), 0.10);
   }
 
-  &[data-otp-color="orange"] {
-    --ds-tag-text-color: var(--ds-color-main-orange);
-    --ds-tag-background-color: rgba(var(--ds-color-main-orange-rgb), 0.10);
+  &[data-ds-color="orange"] {
+    --ds-badge-text-color: var(--ds-color-main-orange);
+    --ds-badge-background-color: rgba(var(--ds-color-main-orange-rgb), 0.10);
   }
 
-  &[data-otp-color="blue"] {
-    --ds-tag-text-color: var(--ds-color-main-blue);
-    --ds-tag-background-color: rgba(var(--ds-color-chart-blue-rgb), 0.10);
+  &[data-ds-color="blue"] {
+    --ds-badge-text-color: var(--ds-color-main-blue);
+    --ds-badge-background-color: rgba(var(--ds-color-chart-blue-rgb), 0.10);
   }
 
-  &[data-otp-color="grey"] {
-    --ds-tag-text-color: var(--ds-color-main-white);
-    --ds-tag-background-color: rgba(var(--ds-color-main-grey-rgb), 0.60);
+  &[data-ds-color="grey"] {
+    --ds-badge-text-color: var(--ds-color-main-white);
+    --ds-badge-background-color: rgba(var(--ds-color-main-grey-rgb), 0.60);
   }
 
   width: fit-content;
   height: fit-content;
   min-width: 5rem;
-  padding: var(--ds-tag-padding);
-  border-radius: var(--ds-tag-border-radius);
+  padding: var(--ds-badge-padding);
+  border-radius: var(--ds-badge-border-radius);
 
   display: flex;
   justify-content: center;
@@ -45,19 +45,19 @@
 
   /**
    * Next 3 properties are useful in case the class is used around sub elements
-   *  <span class="ds-tag" data-otp-color="blue">
+   *  <span class="ds-badge" data-ds-color="blue">
    *   <span class="value">123.44</span>
    *   <span>EUR</span>
    *  </span>
    */
   flex-wrap: wrap;
-  row-gap: var(--ds-tag-row-gap);
-  column-gap: var(--ds-tag-column-gap);
+  row-gap: var(--ds-badge-row-gap);
+  column-gap: var(--ds-badge-column-gap);
 
-  color: var(--ds-tag-text-color);
-  background: var(--ds-tag-background-color);
+  color: var(--ds-badge-text-color);
+  background: var(--ds-badge-background-color);
 
   @extend %ds-typography-body;
-  font-style: var(--ds-tag-font-style);
+  font-style: var(--ds-badge-font-style);
   font-weight: 600;
 }
