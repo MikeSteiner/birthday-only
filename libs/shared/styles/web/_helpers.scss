@@ -101,7 +101,7 @@
 }
 
 /* Desktop/Mobile - H1 */
-%typography-h1 {
+%ds-typography-h1 {
   font-family: var(--otp-sys-body-font);
   font-size: 2rem;
   font-style: normal;
@@ -115,7 +115,7 @@
 }
 
 /* Subtitle -> Desktop/Mobile */
-%typography-subtitle {
+%ds-typography-subtitle {
   font-family: var(--otp-sys-body-font);
   font-size: 1.125rem; // 18px -> 1.125rem
   font-style: normal;
@@ -129,7 +129,7 @@
 }
 
 /* Desktop/Body */
-%typography-body {
+%ds-typography-body {
   font-family: var(--otp-sys-body-font);
   font-size: var(--otp-sys-body-medium-size); // 1rem
   font-style: normal;
@@ -138,7 +138,7 @@
 }
 
 /* Desktop/Body-2 */
-%typography-body-s {
+%ds-typography-body-s {
   font-family: var(--otp-sys-body-font);
   font-size: var(--otp-sys-body-small-size);
   font-style: normal;

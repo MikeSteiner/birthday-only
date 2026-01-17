@@ -1,118 +1,66 @@
 :root {
   // Main colors
-  --sys-color-main-green: #52ae30;
-  --sys-color-main-blue: #328fe6;
-  --sys-color-main-yellow: #ffcc00;
-  --sys-color-main-orange: #ff6600;
-  --sys-color-main-red: #ff435a;
-  --sys-color-main-white: #ffffff;
-  --sys-color-main-black: #000000;
+  --ds-color-main-green: #22c55e;
+  --ds-color-main-blue: #3b82f6;
+  --ds-color-main-yellow: #facc15;
+  --ds-color-main-orange: #f97316;
+  --ds-color-main-red: #ef4444;
+  --ds-color-main-white: #ffffff;
+  --ds-color-main-black: #000000;
 
   // RGB colors
-  --sys-color-main-green-rgb: 82, 174, 48;
-  --sys-color-main-blue-rgb: 50, 143, 230;
-  --sys-color-main-yellow-rgb: 255, 204, 0;
-  --sys-color-main-orange-rgb: 255, 102, 0;
-  --sys-color-main-red-rgb: 255, 67, 90;
-  --sys-color-white-rgb: 255, 255, 255;
-  --sys-color-black-rgb: 0, 0, 0;
-  --sys-color-main-grey-rgb: 75, 75, 75;
-  --sys-color-special-green-darker-rgb: 66, 139, 38;
-  --sys-color-special-orange-darker-rgb: 204, 82, 0;
-  --sys-color-special-red-darker-rgb: 204, 54, 72;
-  --sys-color-special-blue-darker-rgb: 40, 114, 184;
-  --sys-color-text-secondary-rgb: 125, 130, 139;
-  --sys-color-special-border-rgb: 166, 173, 186;
-  --sys-color-chart-blue-rgb: 50, 143, 230;
+  --ds-color-main-green-rgb: 34, 197, 94;
+  --ds-color-main-blue-rgb: 59, 130, 246;
+  --ds-color-main-yellow-rgb: 250, 204, 21;
+  --ds-color-main-orange-rgb: 249, 115, 22;
+  --ds-color-main-red-rgb: 239, 68, 68;
+  --ds-color-main-white-rgb: 255, 255, 255;
+  --ds-color-main-black-rgb: 0, 0, 0;
+
+  --ds-color-text-heading-rgb: 31, 31, 31;
+  --ds-color-text-primary-rgb: 58, 58, 58;
+  --ds-color-text-secondary-rgb: 107, 107, 107;
+
+  --ds-color-special-border-rgb: 209, 209, 209;
+
+  --ds-color-special-overlay: rgba(var(--ds-color-text-secondary-rgb), 0.50);
+  --ds-color-special-shadow: rgba(var(--ds-color-special-border-rgb), 0.24);
 
   // Text colors
-  --sys-color-text-primary: #151617;
-  --sys-color-text-secondary: #7d828b;
-  --sys-color-text-inverse: #ffffff;
+  --ds-color-text-heading: #1f1f1f;
+  --ds-color-text-primary: #3a3a3a;
+  --ds-color-text-secondary: #6b6b6b;
+  --ds-color-text-inverse: #ffffff;
 
   // Background colors
-  --sys-color-background-bg5: #ffffff;
-  --sys-color-background-bg4: #f6f7fa;
-  --sys-color-background-bg3: #eceff6;
-  --sys-color-background-bg2: #e3e8f1;
-  --sys-color-background-bg1: #d0d8e8;
-
-  // Chart colors
-  --sys-color-chart-green: #52ae30;
-  --sys-color-chart-blue: #328fe6;
-  --sys-color-chart-yellow: #ffcc00;
-  --sys-color-chart-purple: #650c90;
-
-  // Hero colors
-  --sys-color-hero-dull-green: #a8ccab;
-  --sys-color-hero-pale-green: #9dcc8f;
-  --sys-color-hero-pale-gray: #c0c6b3;
-  --sys-color-hero-ocher: #eac15a;
-  --sys-color-hero-peach: #f6ad82;
-  --sys-color-hero-mallow: #e3adc3;
-  --sys-color-hero-lilac: #c6afd9;
-  --sys-color-hero-crystal-blue: #a5c3d9;
+  --ds-color-background-bg5: #ffffff;
+  --ds-color-background-bg4: #f7f7f7;
+  --ds-color-background-bg3: #f1f1f1;
+  --ds-color-background-bg2: #cdcdcd;
+  --ds-color-background-bg1: #ababab;
 
   // Special colors
-  --sys-color-special-disabled-text: #ababab;
-  --sys-color-special-disabled-border: #cdcdcd;
-  --sys-color-special-disabled-button-bg: #dddddd;
-  --sys-color-special-disabled-bg: #f2f2f2;
-  --sys-color-special-border: #a6adba;
-  --sys-color-special-green-lighter: #74be59;
-  --sys-color-special-green-dark: #4a9d2b;
-  --sys-color-special-green-darker: #428b26;
-  --sys-color-special-orange-lighter: #ff8533;
-  --sys-color-special-orange-dark: #e55c00;
-  --sys-color-special-orange-darker: #cc5200;
-  --sys-color-special-red-lighter: #ff697b;
-  --sys-color-special-red-dark: #e53c51;
-  --sys-color-special-red-darker: #cc3648;
-  --sys-color-special-blue-lighter: #5ba5eb;
-  --sys-color-special-blue-dark: #2d81cf;
-  --sys-color-special-blue-darker: #2872b8;
-  --sys-color-special-yellow-dark: #e5b800;
-  --sys-color-special-yellow-darker: #cca300;
-  --sys-color-special-green-visited: #31681d;
-  --sys-color-special-orange-visited: #993d00;
-  --sys-color-special-red-visited: #992836;
-  --sys-color-special-blue-visited: #1e568a;
-  --sys-color-special-brand-dark-green: #006648;
-
-  // Special Pastel colors
-  --sys-color-special-pastel-green-10: #eef7ea;
-  --sys-color-special-pastel-green-20: #dcefd6;
-  --sys-color-special-pastel-orange-10: #fff0e6;
-  --sys-color-special-pastel-orange-20: #ffe0cc;
-  --sys-color-special-pastel-red-10: #ffecef;
-  --sys-color-special-pastel-red-20: #ffd9de;
-  --sys-color-special-pastel-blue-10: #eaf4fc;
-  --sys-color-special-pastel-blue-20: #d6e9fa;
-  --sys-color-special-pastel-yellow-10: #fffae6;
-  --sys-color-special-pastel-yellow-20: #fff5cc;
+  --ds-color-special-disabled-text: #ababab;
+  --ds-color-special-disabled-border: #cdcdcd;
+  --ds-color-special-disabled-button-bg: #dddddd;
+  --ds-color-special-disabled-bg: #f2f2f2;
+  --ds-color-special-border: #d1d1d1;
+  --ds-color-special-green-lighter: #74be59;
+  --ds-color-special-green-dark: #4a9d2b;
+  --ds-color-special-green-darker: #428b26;
+  --ds-color-special-orange-lighter: #ff8533;
+  --ds-color-special-orange-dark: #ea580c;
+  --ds-color-special-red-lighter: #ff697b;
+  --ds-color-special-red-dark: #e53c51;
+  --ds-color-special-red-darker: #cc3648;
+  --ds-color-special-blue-lighter: #5ba5eb;
+  --ds-color-special-blue-dark: #2d81cf;
+  --ds-color-special-blue-darker: #2872b8;
+  --ds-color-special-yellow-dark: #e5b800;
+  --ds-color-special-yellow-darker: #cca300;
 
   // Special Alpha colors
-  --sys-color-special-overlay: rgba(var(--sys-color-text-secondary-rgb), 0.50);
-  --sys-color-special-shadow: rgba(var(--sys-color-special-border-rgb), 0.24);
-  --sys-color-special-membrane-upper-shadow: rgba(var(--sys-color-white-rgb), 0.80);
-  --sys-color-special-green-shadow: rgba(var(--sys-color-special-green-darker-rgb), 0.24);
-  --sys-color-special-orange-shadow: rgba(var(--sys-color-special-orange-darker-rgb), 0.24);
-  --sys-color-special-red-shadow: rgba(var(--sys-color-special-red-darker-rgb), 0.24);
-  --sys-color-special-blue-shadow: rgba(var(--sys-color-special-blue-darker-rgb), 0.24);
-  --sys-color-special-alpha-green-10: rgba(var(--sys-color-main-green-rgb), 0.10);
-  --sys-color-special-alpha-green-20: rgba(var(--sys-color-main-green-rgb), 0.20);
-  --sys-color-special-alpha-orange-10: rgba(var(--sys-color-main-orange-rgb), 0.10);
-  --sys-color-special-alpha-orange-20: rgba(var(--sys-color-main-orange-rgb), 0.20);
-  --sys-color-special-alpha-red-10: rgba(var(--sys-color-main-red-rgb), 0.10);
-  --sys-color-special-alpha-red-20: rgba(var(--sys-color-main-red-rgb), 0.20);
-  --sys-color-special-alpha-blue-10: rgba(var(--sys-color-main-blue-rgb), 0.10);
-  --sys-color-special-alpha-blue-20: rgba(var(--sys-color-main-blue-rgb), 0.20);
-  --sys-color-special-alpha-yellow-10: rgba(var(--sys-color-main-yellow-rgb), 0.10);
-  --sys-color-special-alpha-yellow-20: rgba(var(--sys-color-main-yellow-rgb), 0.20);
-  --sys-color-special-alpha-inverse-10: rgba(var(--sys-color-white-rgb), 0.10);
-  --sys-color-special-alpha-inverse-20: rgba(var(--sys-color-white-rgb), 0.20);
-  --sys-color-special-alpha-gray-10: rgba(var(--sys-color-text-secondary-rgb), 0.10);
-  --sys-color-special-alpha-gray-20: rgba(var(--sys-color-text-secondary-rgb), 0.20);
-  --sys-color-special-alpha-black-10: rgba(var(--sys-color-black-rgb), 0.10);
-  --sys-color-special-alpha-black-20: rgba(var(--sys-color-black-rgb), 0.20);
+  --ds-color-special-overlay: rgba(var(--ds-color-text-secondary-rgb), 0.50);
+  --ds-color-special-shadow: rgba(var(--ds-color-special-border-rgb), 0.24);
+  --ds-color-special-membrane-upper-shadow: rgba(var(--ds-color-white-rgb), 0.80);
 }

@@ -1,6 +1,10 @@
-section {
-  margin-bottom: 2rem;
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
+
 
 .upcoming-list {
   display: flex;
@@ -12,10 +16,6 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 0.5rem;
-  transition: all 0.3s;
 
   &.today {
     border-color: #ffc107;
@@ -23,47 +23,7 @@ section {
   }
 
   &:hover {
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
 }
 
-.upcoming-info {
-  h3 {
-    margin: 0 0 0.25rem;
-    color: #333;
-  }
-
-  p {
-    margin: 0;
-    color: #666;
-    font-size: 0.875rem;
-  }
-}
-
-.days-until {
-  text-align: center;
-  min-width: 80px;
-
-  .days {
-    display: block;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #667eea;
-  }
-
-  .label {
-    display: block;
-    font-size: 0.75rem;
-    color: #666;
-  }
-}
-
-.today-badge {
-  background: #ffc107;
-  color: #333;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  font-weight: bold;
-  font-size: 0.875rem;
-}
