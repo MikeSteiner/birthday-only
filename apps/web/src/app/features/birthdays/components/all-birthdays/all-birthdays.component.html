@@ -1,27 +1,37 @@
-
 <section class="section-header">
-    <h2>All Birthdays</h2>
+    <h2 class="ds-h2">Your Birthdays</h2>
     <button class="btn-primary" (click)="add.emit()">+ Add Birthday</button>
 </section>
 
 @if (birthdays().length > 0) {
     <div class="birthdays-grid">
-        @for (b of birthdays(); track b._id) {
-            <div class="card-layout__main birthday-card">
-                <h3>{{ b.name }}</h3>
+        @for (bd of birthdays(); track bd._id) {
+            <app-birthday-action-card
+                    [birthday]="bd">
+                <button
+                        class="btn-icon btn-icon--edit"
+                        (click)="edit.emit(bd)"
+                        aria-label="Edit birthday"
+                >
+                    ✏️
+                </button>
 
-                <p>
-                    🎂 {{ b.birthMonth }}/{{ b.birthDay }}
-                    @if (b.birthYear) {
-                        • Born {{ b.birthYear }}
-                    }
-                </p>
+                <button
+                        class="btn-icon btn-icon--call"
+                        (click)="call.emit(bd._id!)"
+                        aria-label="Call"
+                >
+                    📞
+                </button>
 
-                <div class="card-actions">
-                    <button class="btn-icon" (click)="edit.emit(b)">✏️</button>
-                    <button class="btn-icon" (click)="remove.emit(b._id)">🗑️</button>
-                </div>
-            </div>
+                <button
+                        class="btn-icon btn-icon--delete"
+                        (click)="remove.emit(bd._id!)"
+                        aria-label="Delete birthday"
+                >
+                    🗑
+                </button>
+            </app-birthday-action-card>
         }
     </div>
 } @else {

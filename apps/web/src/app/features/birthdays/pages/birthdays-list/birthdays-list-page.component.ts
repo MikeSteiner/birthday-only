@@ -7,7 +7,7 @@ import {
   BirthdayDialogInputData,
   BirthdayDialogResultData,
 } from "../../components/birthday-dialog/birthday-dialog.component";
-import { BirthdayFocusCardComponent } from '../../components/birthday-focus-card/birthday-focus-card.component';
+import { BirthdayFocusCardComponent } from "../../components/birthday-focus-card/birthday-focus-card.component";
 import { DialogService } from "../../components/dialog/dialog.service";
 import { UpcomingBirthdaysComponent } from "../../components/upcoming-birthdays/upcoming-birthdays.component";
 import { BirthdaysStore } from "../../state/bithdays.store";
@@ -82,5 +82,9 @@ export class BirthdaysListPageComponent implements OnInit {
 
   delete(id: string): void {
     this.birthdaysStore.deleteBirthday(id);
+  }
+
+  call(id: string): void {
+    console.log("CALL action", id);
   }
 }
