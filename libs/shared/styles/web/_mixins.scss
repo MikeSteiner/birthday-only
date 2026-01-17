@@ -1,0 +1,11 @@
+@mixin icon-size($size-rem) {
+  max-width: $size-rem;
+  max-height: $size-rem;
+  min-width: $size-rem;
+  min-height: $size-rem;
+  width: $size-rem;
+  height: $size-rem;
+
+  line-height: $size-rem;
+}
+

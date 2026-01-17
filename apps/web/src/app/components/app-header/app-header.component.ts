@@ -2,13 +2,13 @@ import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-birthdays-header',
+  selector: 'app-header',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './birthdays-header.component.html',
-  styleUrls: ['./birthdays-header.component.scss'],
+  templateUrl: './app-header.component.html',
+  styleUrls: ['./app-header.component.scss'],
 })
-export class BirthdaysHeaderComponent {
+export class AppHeaderComponent {
   readonly user = input<{ email: string } | null>();
   readonly logout = output<void>();
 }

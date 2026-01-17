@@ -2,16 +2,15 @@
 
 <app-birthday-form [form]="form"/>
 
-<button
-        class="btn-primary"
-        (click)="confirm()"
->
-    Save
-</button>
-
-<button
-        class="btn-secondary"
-        (click)="close()"
->
-    Cancel
-</button>
+<section class="modal-actions">
+    <button class="btn-primary"
+            (click)="confirm()"
+    >
+        Save
+    </button>
+    <button class="btn-secondary"
+            (click)="close()"
+    >
+        Cancel
+    </button>
+</section>

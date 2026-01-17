@@ -1,0 +1,28 @@
+@use './mixins';
+
+:root {
+  --app-main-card-padding: 2rem;
+  --app-secondary-card-padding: 1.5rem;
+
+  @media screen and (max-width: 1024px) {
+    --app-main-card-padding: 1.5rem;
+    --app-secondary-card-padding: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    --app-main-card-padding: 1rem;
+    --app-secondary-card-padding: 1rem;
+  }
+}
+.card-layout__main {
+  padding: var(--app-main-card-padding);
+  border-radius: 1.5rem;
+  background-color: var(--sys-color-main-white);
+  box-shadow: var(--default-box-shadow);
+}
+
+.card-layout__secondary {
+  padding: var(--app-secondary-card-padding);
+  border-radius: 1rem;
+  background-color: var(--sys-color-background-bg4);
+}

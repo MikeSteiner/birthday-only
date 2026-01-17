@@ -1,0 +1,118 @@
+:root {
+  // Main colors
+  --sys-color-main-green: #52ae30;
+  --sys-color-main-blue: #328fe6;
+  --sys-color-main-yellow: #ffcc00;
+  --sys-color-main-orange: #ff6600;
+  --sys-color-main-red: #ff435a;
+  --sys-color-main-white: #ffffff;
+  --sys-color-main-black: #000000;
+
+  // RGB colors
+  --sys-color-main-green-rgb: 82, 174, 48;
+  --sys-color-main-blue-rgb: 50, 143, 230;
+  --sys-color-main-yellow-rgb: 255, 204, 0;
+  --sys-color-main-orange-rgb: 255, 102, 0;
+  --sys-color-main-red-rgb: 255, 67, 90;
+  --sys-color-white-rgb: 255, 255, 255;
+  --sys-color-black-rgb: 0, 0, 0;
+  --sys-color-main-grey-rgb: 75, 75, 75;
+  --sys-color-special-green-darker-rgb: 66, 139, 38;
+  --sys-color-special-orange-darker-rgb: 204, 82, 0;
+  --sys-color-special-red-darker-rgb: 204, 54, 72;
+  --sys-color-special-blue-darker-rgb: 40, 114, 184;
+  --sys-color-text-secondary-rgb: 125, 130, 139;
+  --sys-color-special-border-rgb: 166, 173, 186;
+  --sys-color-chart-blue-rgb: 50, 143, 230;
+
+  // Text colors
+  --sys-color-text-primary: #151617;
+  --sys-color-text-secondary: #7d828b;
+  --sys-color-text-inverse: #ffffff;
+
+  // Background colors
+  --sys-color-background-bg5: #ffffff;
+  --sys-color-background-bg4: #f6f7fa;
+  --sys-color-background-bg3: #eceff6;
+  --sys-color-background-bg2: #e3e8f1;
+  --sys-color-background-bg1: #d0d8e8;
+
+  // Chart colors
+  --sys-color-chart-green: #52ae30;
+  --sys-color-chart-blue: #328fe6;
+  --sys-color-chart-yellow: #ffcc00;
+  --sys-color-chart-purple: #650c90;
+
+  // Hero colors
+  --sys-color-hero-dull-green: #a8ccab;
+  --sys-color-hero-pale-green: #9dcc8f;
+  --sys-color-hero-pale-gray: #c0c6b3;
+  --sys-color-hero-ocher: #eac15a;
+  --sys-color-hero-peach: #f6ad82;
+  --sys-color-hero-mallow: #e3adc3;
+  --sys-color-hero-lilac: #c6afd9;
+  --sys-color-hero-crystal-blue: #a5c3d9;
+
+  // Special colors
+  --sys-color-special-disabled-text: #ababab;
+  --sys-color-special-disabled-border: #cdcdcd;
+  --sys-color-special-disabled-button-bg: #dddddd;
+  --sys-color-special-disabled-bg: #f2f2f2;
+  --sys-color-special-border: #a6adba;
+  --sys-color-special-green-lighter: #74be59;
+  --sys-color-special-green-dark: #4a9d2b;
+  --sys-color-special-green-darker: #428b26;
+  --sys-color-special-orange-lighter: #ff8533;
+  --sys-color-special-orange-dark: #e55c00;
+  --sys-color-special-orange-darker: #cc5200;
+  --sys-color-special-red-lighter: #ff697b;
+  --sys-color-special-red-dark: #e53c51;
+  --sys-color-special-red-darker: #cc3648;
+  --sys-color-special-blue-lighter: #5ba5eb;
+  --sys-color-special-blue-dark: #2d81cf;
+  --sys-color-special-blue-darker: #2872b8;
+  --sys-color-special-yellow-dark: #e5b800;
+  --sys-color-special-yellow-darker: #cca300;
+  --sys-color-special-green-visited: #31681d;
+  --sys-color-special-orange-visited: #993d00;
+  --sys-color-special-red-visited: #992836;
+  --sys-color-special-blue-visited: #1e568a;
+  --sys-color-special-brand-dark-green: #006648;
+
+  // Special Pastel colors
+  --sys-color-special-pastel-green-10: #eef7ea;
+  --sys-color-special-pastel-green-20: #dcefd6;
+  --sys-color-special-pastel-orange-10: #fff0e6;
+  --sys-color-special-pastel-orange-20: #ffe0cc;
+  --sys-color-special-pastel-red-10: #ffecef;
+  --sys-color-special-pastel-red-20: #ffd9de;
+  --sys-color-special-pastel-blue-10: #eaf4fc;
+  --sys-color-special-pastel-blue-20: #d6e9fa;
+  --sys-color-special-pastel-yellow-10: #fffae6;
+  --sys-color-special-pastel-yellow-20: #fff5cc;
+
+  // Special Alpha colors
+  --sys-color-special-overlay: rgba(var(--sys-color-text-secondary-rgb), 0.50);
+  --sys-color-special-shadow: rgba(var(--sys-color-special-border-rgb), 0.24);
+  --sys-color-special-membrane-upper-shadow: rgba(var(--sys-color-white-rgb), 0.80);
+  --sys-color-special-green-shadow: rgba(var(--sys-color-special-green-darker-rgb), 0.24);
+  --sys-color-special-orange-shadow: rgba(var(--sys-color-special-orange-darker-rgb), 0.24);
+  --sys-color-special-red-shadow: rgba(var(--sys-color-special-red-darker-rgb), 0.24);
+  --sys-color-special-blue-shadow: rgba(var(--sys-color-special-blue-darker-rgb), 0.24);
+  --sys-color-special-alpha-green-10: rgba(var(--sys-color-main-green-rgb), 0.10);
+  --sys-color-special-alpha-green-20: rgba(var(--sys-color-main-green-rgb), 0.20);
+  --sys-color-special-alpha-orange-10: rgba(var(--sys-color-main-orange-rgb), 0.10);
+  --sys-color-special-alpha-orange-20: rgba(var(--sys-color-main-orange-rgb), 0.20);
+  --sys-color-special-alpha-red-10: rgba(var(--sys-color-main-red-rgb), 0.10);
+  --sys-color-special-alpha-red-20: rgba(var(--sys-color-main-red-rgb), 0.20);
+  --sys-color-special-alpha-blue-10: rgba(var(--sys-color-main-blue-rgb), 0.10);
+  --sys-color-special-alpha-blue-20: rgba(var(--sys-color-main-blue-rgb), 0.20);
+  --sys-color-special-alpha-yellow-10: rgba(var(--sys-color-main-yellow-rgb), 0.10);
+  --sys-color-special-alpha-yellow-20: rgba(var(--sys-color-main-yellow-rgb), 0.20);
+  --sys-color-special-alpha-inverse-10: rgba(var(--sys-color-white-rgb), 0.10);
+  --sys-color-special-alpha-inverse-20: rgba(var(--sys-color-white-rgb), 0.20);
+  --sys-color-special-alpha-gray-10: rgba(var(--sys-color-text-secondary-rgb), 0.10);
+  --sys-color-special-alpha-gray-20: rgba(var(--sys-color-text-secondary-rgb), 0.20);
+  --sys-color-special-alpha-black-10: rgba(var(--sys-color-black-rgb), 0.10);
+  --sys-color-special-alpha-black-20: rgba(var(--sys-color-black-rgb), 0.20);
+}
