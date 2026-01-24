@@ -5,7 +5,10 @@ publish = "dist/apps/web/browser"
 [[plugins]]
 package = "@netlify/angular-runtime"
 
+[build.environment]
+NODE_VERSION = "20"
+
 [[redirects]]
 from = "/*"
-to = "/index.html"
 status = 200
+to = "/index.csr.html"
