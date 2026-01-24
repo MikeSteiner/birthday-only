@@ -59,8 +59,8 @@ export class BirthdayDialogComponent {
     const formValue = this.form.getRawValue();
     const bd: BirthdayDialogResultData = {
       name: formValue.name,
-      birthDay: formValue.birthDay,
-      birthMonth: formValue.birthMonth,
+      birthDay: Number(formValue.birthDay),
+      birthMonth: Number(formValue.birthMonth),
       birthYear: formValue.birthYear ?? undefined,
     };
 
