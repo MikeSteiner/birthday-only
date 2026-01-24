@@ -12,8 +12,8 @@ export async function netlifyAppEngineHandler(
 ): Promise<Response> {
   const context = getContext();
 
-  const result = await angularAppEngine.handle(request, context);
-  return result ?? new Response('Not found', { status: 404 });
+  const response = await angularAppEngine.handle(request, context);
+  return response ?? new Response('Not found', { status: 404 });
 }
 
 /**
