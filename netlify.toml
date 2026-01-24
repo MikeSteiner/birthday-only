@@ -1,12 +1,17 @@
 [build]
-    base = "apps/web"
-    command = "npx nx run web:build:production"
-    publish = "dist/apps/web/browser"
+command = "npx nx run web:build:production"
+publish = "dist/apps/web/browser"
 
 [[plugins]]
-    package = "@netlify/angular-runtime"
+package = "@netlify/angular-runtime"
+
+[plugins.inputs]
+angularAppRoot = "dist/apps/web"
+
+[build.environment]
+NODE_VERSION = "20"
 
 [[redirects]]
-    from = "/*"
-    status = 200
-    to = "/index.csr.html"
+from = "/*"
+status = 200
+to = "/index.csr.html"
