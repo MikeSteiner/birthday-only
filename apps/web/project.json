@@ -6,7 +6,7 @@
   "prefix": "app",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
+      "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/web",
@@ -23,9 +23,8 @@
         "styles": ["apps/web/src/styles.scss"],
         "scripts": [],
         "server": "apps/web/src/main.server.ts",
-        "prerender": true,
         "ssr": {
-          "entry": "apps/web/src/main.server.ts"
+          "entry": "apps/web/src/server.ts"
         }
       },
       "configurations": {

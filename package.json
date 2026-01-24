@@ -64,6 +64,7 @@
     "@nestjs/cli": "^10.4.5",
     "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.4.4",
+    "@netlify/angular-runtime": "^3.0.1",
     "@nx/angular": "^20.2.3",
     "@nx/eslint": "^20.2.3",
     "@nx/eslint-plugin": "^20.2.3",

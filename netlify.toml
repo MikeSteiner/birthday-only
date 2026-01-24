@@ -1,0 +1,11 @@
+[build]
+command = "npx nx run web:build:production"
+publish = "dist/apps/web/browser"
+
+[[plugins]]
+package = "@netlify/angular-runtime"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
