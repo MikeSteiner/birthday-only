@@ -1,0 +1,10 @@
+<app-header
+        [user]="currentUser()"
+        (logout)="logout()"
+/>
+
+<main class="shell-content">
+    <ng-content />
+</main>
+
+<app-footer />

@@ -1,0 +1,31 @@
+<section class="section-header">
+
+    <h2 class="">
+        <span class="">🔔</span>
+        Upcoming Birthdays
+    </h2>
+    <span class="">
+          {{ birthdays().length }} upcoming
+    </span>
+</section>
+
+@if (birthdays().length === 0) {
+    <div class="">
+        <div class="">🎉</div>
+        <p class="">No upcoming birthdays in the next 30 days</p>
+    </div>
+} @else {
+
+    <ul class="upcoming-list">
+
+        @for (birthday of birthdays(); track birthday._id) {
+            <li class="card-layout__secondary upcoming-card">
+                {{ birthday.name }} – {{ birthday.daysUntil }} days
+                @if (birthday.age) {
+                    <span>({{ birthday.age }})</span>
+                }
+            </li>
+        }
+    </ul>
+}
+

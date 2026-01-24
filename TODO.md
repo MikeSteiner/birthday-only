@@ -18,6 +18,15 @@ This file lists additional files and features you may want to add for a producti
 - [x] Documentation (README, QUICKSTART, DEPLOYMENT)
 
 ## 📋 Optional Additions
+- [ ] Install ng-mock
+- [ ] Install bootstrap and bootstrap modal
+- [ ] Separate component file html/scss
+- [ ] Introduce CSS variables / theming
+- [ ] Extract shared button styles
+- [ ] Add dark mode
+- [ ] Add mobile breakpoints
+- [ ] Convert to CSS layers
+- [ ] Pass the _id when updating and not use only the name
 
 ### Testing
 

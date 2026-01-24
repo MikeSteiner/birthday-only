@@ -1,0 +1,83 @@
+@use '../../../../../../../../libs/shared/styles/web/ds-variables' as vars;
+
+:host {
+  height: 100%;
+  background: var(--sys-color-background-bg5);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: var(--sys-color-special-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.focus-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.focus-card__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sys-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.focus-card__name {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.25rem;
+  color: var(--sys-color-text-heading);
+}
+
+.focus-card__date,
+.focus-card__age {
+  font-size: 0.875rem;
+  color: var(--sys-color-text-primary);
+}
+
+.focus-card__actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.focus-card__empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sys-color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Badges */
+.badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.badge--today {
+  background: var(--sys-color-main-yellow);
+  color: var(--sys-color-text-heading);
+}
+
+.badge--tomorrow {
+  background: var(--sys-color-main-orange);
+  color: var(--sys-color-text-inverse);
+}
+
+.badge--soon {
+  background: var(--sys-color-main-blue);
+  color: var(--sys-color-text-inverse);
+}
+
+/* Call button */
+.btn-icon.call {
+  font-size: 1.25rem;
+  color: var(--sys-color-main-green);
+}
+

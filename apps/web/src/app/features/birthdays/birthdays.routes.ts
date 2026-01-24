@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { BirthdaysListComponent } from './pages/birthdays-list/birthdays-list.component';
+import { BirthdaysListPageComponent } from './pages/birthdays-list/birthdays-list-page.component';
 
 export const BIRTHDAYS_ROUTES: Routes = [
   {
     path: '',
-    component: BirthdaysListComponent
+    component: BirthdaysListPageComponent
   }
 ];

@@ -1,0 +1,66 @@
+:root {
+  // Main colors
+  --ds-color-main-green: #22c55e;
+  --ds-color-main-blue: #3b82f6;
+  --ds-color-main-yellow: #facc15;
+  --ds-color-main-orange: #f97316;
+  --ds-color-main-red: #ef4444;
+  --ds-color-main-white: #ffffff;
+  --ds-color-main-black: #000000;
+
+  // RGB colors
+  --ds-color-main-green-rgb: 34, 197, 94;
+  --ds-color-main-blue-rgb: 59, 130, 246;
+  --ds-color-main-yellow-rgb: 250, 204, 21;
+  --ds-color-main-orange-rgb: 249, 115, 22;
+  --ds-color-main-red-rgb: 239, 68, 68;
+  --ds-color-main-white-rgb: 255, 255, 255;
+  --ds-color-main-black-rgb: 0, 0, 0;
+
+  --ds-color-text-heading-rgb: 31, 31, 31;
+  --ds-color-text-primary-rgb: 58, 58, 58;
+  --ds-color-text-secondary-rgb: 107, 107, 107;
+
+  --ds-color-special-border-rgb: 209, 209, 209;
+
+  --ds-color-special-overlay: rgba(var(--ds-color-text-secondary-rgb), 0.50);
+  --ds-color-special-shadow: rgba(var(--ds-color-special-border-rgb), 0.24);
+
+  // Text colors
+  --ds-color-text-heading: #1f1f1f;
+  --ds-color-text-primary: #3a3a3a;
+  --ds-color-text-secondary: #6b6b6b;
+  --ds-color-text-inverse: #ffffff;
+
+  // Background colors
+  --ds-color-background-bg5: #ffffff;
+  --ds-color-background-bg4: #f7f7f7;
+  --ds-color-background-bg3: #f1f1f1;
+  --ds-color-background-bg2: #cdcdcd;
+  --ds-color-background-bg1: #ababab;
+
+  // Special colors
+  --ds-color-special-disabled-text: #ababab;
+  --ds-color-special-disabled-border: #cdcdcd;
+  --ds-color-special-disabled-button-bg: #dddddd;
+  --ds-color-special-disabled-bg: #f2f2f2;
+  --ds-color-special-border: #d1d1d1;
+  --ds-color-special-green-lighter: #74be59;
+  --ds-color-special-green-dark: #4a9d2b;
+  --ds-color-special-green-darker: #428b26;
+  --ds-color-special-orange-lighter: #ff8533;
+  --ds-color-special-orange-dark: #ea580c;
+  --ds-color-special-red-lighter: #ff697b;
+  --ds-color-special-red-dark: #e53c51;
+  --ds-color-special-red-darker: #cc3648;
+  --ds-color-special-blue-lighter: #5ba5eb;
+  --ds-color-special-blue-dark: #2d81cf;
+  --ds-color-special-blue-darker: #2872b8;
+  --ds-color-special-yellow-dark: #e5b800;
+  --ds-color-special-yellow-darker: #cca300;
+
+  // Special Alpha colors
+  --ds-color-special-overlay: rgba(var(--ds-color-text-secondary-rgb), 0.50);
+  --ds-color-special-shadow: rgba(var(--ds-color-special-border-rgb), 0.24);
+  --ds-color-special-membrane-upper-shadow: rgba(var(--ds-color-white-rgb), 0.80);
+}

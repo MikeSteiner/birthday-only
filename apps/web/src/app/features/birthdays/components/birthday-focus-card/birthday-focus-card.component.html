@@ -1,0 +1,39 @@
+@if (birthday()) {
+    <div class="focus-card__header">
+        <span class="focus-card__title">Next up</span>
+
+        @if (badgeType()) {
+            <span class="badge" class="ds-badge" data-ds-color="orange">
+                {{ badgeType() | titlecase }}
+            </span>
+        }
+    </div>
+
+    <div class="focus-card__content">
+        <h3 class="focus-card__name">{{ birthday()!.name }}</h3>
+
+        <p class="focus-card__date">
+            🎂 {{ birthday()!.birthMonth }}/{{ birthday()!.birthDay }}
+            @if (birthday()!.birthYear) {
+                • Born {{ birthday()!.birthYear }}
+            }
+        </p>
+
+<!--        TODO: Calculate age is date of birth present-->
+<!--        @if (birthday()!.age) {-->
+<!--            <p class="focus-card__age">-->
+<!--                Turning {{ birthday()!.age }}-->
+<!--            </p>-->
+<!--        }-->
+    </div>
+
+    <div class="focus-card__actions">
+        <button class="btn-icon call" title="Call">
+            📞
+        </button>
+    </div>
+} @else {
+    <div class="focus-card__empty">
+        <p>Select a birthday to see details</p>
+    </div>
+}

@@ -1,0 +1,148 @@
+@use './mixins';
+
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+.visible {
+  visibility: visible !important;
+}
+
+/**
+ * Use this class to visually hide an element while preserving its layout space.
+ *
+ * In Angular Material headers, `visibility: hidden` may propagate through
+ * the render tree and unintentionally affect sibling or parent elements.
+ * This can result in multiple components reacting to a single state change.
+ *
+ * Using `opacity: 0` avoids inheritance issues and ensures that only the
+ * targeted element is hidden. Pointer events are disabled to prevent
+ * interaction with invisible elements.
+ *
+ * Recommended for conditional UI inside Angular Material components.
+ */
+.invisible-using-opacity {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.overflow-scroll {
+  overflow: scroll !important;
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important; /* Safari and Chrome */
+}
+
+.web-link {
+  color: var(--otp-sys-main-green);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.mb-8 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-16 {
+  margin-bottom: 1rem;
+}
+
+.mb-24 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 0.5rem;
+}
+
+.mt-16 {
+  margin-top: 1rem;
+}
+
+.mt-24 {
+  margin-top: 1.5rem;
+}
+
+/* Desktop/Mobile - H1 */
+%ds-typography-h1 {
+  font-family: var(--otp-sys-body-font);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.5rem;
+
+  @media only screen and (max-width: 959px) {
+    font-size: 1.625rem; // 26px -> 1.625rem;
+    line-height: 2rem;
+  }
+}
+
+/* Subtitle -> Desktop/Mobile */
+%ds-typography-subtitle {
+  font-family: var(--otp-sys-body-font);
+  font-size: 1.125rem; // 18px -> 1.125rem
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.75rem; // 28px -> 1.75rem
+  font-feature-settings: 'cv12' on, 'cv14' on, 'cv15' on, 'cv16' on, 'cv17' on;
+
+  @media only screen and (max-width: 744px) {
+    line-height: 1.5rem;
+  }
+}
+
+/* Desktop/Body */
+%ds-typography-body {
+  font-family: var(--otp-sys-body-font);
+  font-size: var(--otp-sys-body-medium-size); // 1rem
+  font-style: normal;
+  font-weight: var(--otp-sys-body-medium-weight); // 400
+  line-height: var(--otp-sys-body-medium-line-height); // 1.5rem
+}
+
+/* Desktop/Body-2 */
+%ds-typography-body-s {
+  font-family: var(--otp-sys-body-font);
+  font-size: var(--otp-sys-body-small-size);
+  font-style: normal;
+  font-weight: var(--otp-sys-body-small-weight); // 400
+  line-height: 1.125rem;  // 18px -> 1.125rem
+}
+

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AppShellComponent } from './components/app-shell/app-shell.component';
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet],
-  template: '<router-outlet></router-outlet>',
-  styles: []
+  imports: [RouterOutlet, AppShellComponent],
+  template: ` <app-shell>
+    <router-outlet />
+  </app-shell>`,
+  styles: [],
 })
-export class AppComponent {
-  title = 'Birthday App';
-}
+export class AppComponent {}
