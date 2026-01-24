@@ -1,0 +1,56 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header {
+  padding: 1.25rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  background: linear-gradient(
+                  135deg,
+                  #fbbf24 0%,
+                  #f97316 100%
+  );
+
+  color: #1f2937;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Right side */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* User email pill */
+.user-email {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  font-weight: 500;
+}
+
+/* Button override for header */
+.header-actions .btn-secondary {
+  border-color: rgba(0, 0, 0, 0.4);
+}

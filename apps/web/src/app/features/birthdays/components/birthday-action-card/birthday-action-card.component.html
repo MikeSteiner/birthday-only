@@ -1,0 +1,18 @@
+<div class="birthday-card__avatar">
+    {{ birthday().name[0] }}
+</div>
+
+<div class="birthday-card__content">
+    <p class="birthday-card__name">{{ birthday().name }}</p>
+
+    <p class="birthday-card__meta">
+        {{ birthday().birthMonth }}/{{ birthday().birthDay }}
+        @if (birthday().birthYear) {
+            • {{ birthday().birthYear }}
+        }
+    </p>
+</div>
+
+<div class="birthday-card__actions">
+    <ng-content />
+</div>

@@ -1,0 +1,172 @@
+/* ===============================
+   DESIGN SYSTEM – BUTTONS
+   =============================== */
+
+button {
+  font-family: var(--ds-font-family);
+}
+
+/* =========================================
+   BASE BUTTON
+   ========================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.75rem 1.5rem;
+
+  font-size: var(--ds-font-size__sm);
+  font-weight: var(--ds-font-weight__semibold);
+  line-height: var(--ds-line-height__tight);
+
+  border-radius: var(--ds-radius__lg);
+  border: none;
+
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+
+  transition: var(--ds-transition__fast);
+
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+            0 0 0 3px rgba(var(--ds-color-main-orange-rgb), 0.35);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: var(--ds-color-special-disabled-button-bg);
+    color: var(--ds-color-special-disabled-text);
+  }
+}
+
+/* =========================================
+   PRIMARY
+   ========================================= */
+
+.btn-primary {
+  @extend .btn;
+
+  background: var(--ds-color-main-orange);
+  color: var(--ds-color-text-inverse);
+  box-shadow: var(--ds-shadow__button);
+
+  &:hover:not(:disabled) {
+    background: var(--ds-color-special-orange-dark);
+    box-shadow: var(--ds-shadow__md);
+  }
+
+  &:active:not(:disabled) {
+    box-shadow: var(--ds-shadow__sm);
+  }
+}
+
+/* =========================================
+   SECONDARY
+   ========================================= */
+
+.btn-secondary {
+  @extend .btn;
+
+  background: var(--ds-color-background-bg5);
+  color: var(--ds-color-text-primary);
+  border: 1px solid var(--ds-color-special-border);
+  box-shadow: var(--ds-shadow__xs);
+
+  &:hover:not(:disabled) {
+    background: var(--ds-color-background-bg3);
+    box-shadow: var(--ds-shadow__sm);
+  }
+}
+
+/* =========================================
+   DANGER
+   ========================================= */
+
+.btn-danger {
+  @extend .btn;
+
+  background: var(--ds-color-main-red);
+  color: var(--ds-color-text-inverse);
+  box-shadow: var(--ds-shadow__button);
+
+  &:hover:not(:disabled) {
+    background: var(--ds-color-special-red-dark);
+    box-shadow: var(--ds-shadow__md);
+  }
+
+  &:focus-visible {
+    box-shadow:
+            0 0 0 3px rgba(var(--ds-color-main-red-rgb), 0.35);
+  }
+}
+
+/* =========================================
+   ICON BUTTON
+   ========================================= */
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.5rem;
+  border-radius: var(--ds-radius__md);
+
+  background: transparent;
+  border: none;
+
+  font-size: var(--ds-font-size__lg);
+  color: var(--ds-color-text-secondary);
+
+  cursor: pointer;
+  transition: var(--ds-transition__fast);
+
+  &:hover:not(:disabled) {
+    background: var(--ds-color-background-bg3);
+    color: var(--ds-color-text-heading);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+            0 0 0 3px rgba(var(--ds-color-main-blue-rgb), 0.25);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--ds-color-special-disabled-text);
+  }
+}
+
+/* =========================================
+   ICON INTENT VARIANTS
+   ========================================= */
+
+.btn-icon--call {
+  color: var(--ds-color-main-green);
+
+  &:hover:not(:disabled) {
+    background: rgba(var(--ds-color-main-green-rgb), 0.12);
+  }
+}
+
+.btn-icon--edit {
+  color: var(--ds-color-main-blue);
+
+  &:hover:not(:disabled) {
+    background: rgba(var(--ds-color-main-blue-rgb), 0.12);
+  }
+}
+
+.btn-icon--delete {
+  color: var(--ds-color-main-red);
+
+  &:hover:not(:disabled) {
+    background: rgba(var(--ds-color-main-red-rgb), 0.12);
+  }
+}

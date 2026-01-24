@@ -1,0 +1,16 @@
+.footer {
+  background: linear-gradient(
+                  135deg,
+                  #fbbf24 0%,
+                  #f97316 100%
+  );
+
+  color: #1f2937;
+  padding: 1.25rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,46 @@
+@use '../../../../../../../../libs/shared/styles/web/ds-variables' as ds-variables;
+
+:host {
+  padding: 1rem;
+  background: var(--ds-color-background-bg4);
+  border-radius: var(--ds-radius__xl);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ds-color-special-border);
+}
+
+.ds-h2 {
+  margin: 0;
+
+  font-size: var(--ds-font-size__lg);
+  font-weight: var(--ds-font-weight__semibold);
+  color: var(--ds-color-text-heading);
+
+  position: relative;
+  padding-left: 0.75rem;
+}
+
+.birthdays-grid {
+  display: grid;
+  gap: 0.75rem;
+
+  grid-template-columns: 1fr;
+
+  @media (min-width: ds-variables.$breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: ds-variables.$breakpoint-xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

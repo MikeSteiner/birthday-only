@@ -1,0 +1,17 @@
+<section class="dashboard-top__section">
+    <app-upcoming-birthdays
+            [birthdays]="upcomingBirthdays()"
+    />
+
+    <app-birthday-focus-card
+            [birthday]="upcomingBirthdays()[0]"
+    />
+</section>
+
+<app-all-birthdays
+        [birthdays]="birthdays()"
+        (remove)="delete($event)"
+        (edit)="openEdit($event)"
+        (call)="call($event)"
+        (add)="openAdd()"
+/>

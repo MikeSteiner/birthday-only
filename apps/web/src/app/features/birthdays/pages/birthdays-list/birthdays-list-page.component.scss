@@ -1,0 +1,20 @@
+@use '../../../../../../../../libs/shared/styles/web/layout';
+@use '../../../../../../../../libs/shared/styles/web/ds-variables' as ds-variables;
+
+:host {
+  // Page layout
+  @extend %basic-page-layout;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.dashboard-top__section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: ds-variables.$breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
