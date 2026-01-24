@@ -25,9 +25,10 @@ export class PlatformDataService {
   readonly domainOrigin = this.getDomainOrigin();
 
   constructor() {
-    if (this.isBrowser && this.window) {
+    const win = this.window;
+    if (this.isBrowser && win) {
       this.ngZone.runOutsideAngular(() => {
-        fromEvent(this.window, 'resize')
+        fromEvent(win, 'resize')
         .pipe(
           debounceTime(300),
           map(() => this.window!.innerWidth),
@@ -39,7 +40,6 @@ export class PlatformDataService {
         });
       });
     }
-
   }
 
   private getDomainOrigin(): string {
