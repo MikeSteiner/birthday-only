@@ -5,9 +5,6 @@ publish = "dist/apps/web/browser"
 [[plugins]]
 package = "@netlify/angular-runtime"
 
-[plugins.inputs]
-angularAppRoot = "dist/apps/web"
-
 [build.environment]
 NODE_VERSION = "20"
 
