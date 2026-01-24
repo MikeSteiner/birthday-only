@@ -1,7 +1,7 @@
 <section class="section-header">
     <h2 class="ds-h2">Your Birthdays</h2>
     <button class="btn-primary" (click)="add.emit()">
-        <svg uiIcon="plus" class="icon"/> Add Birthday</button>
+        <svg uiIcon="plus" class="icon"></svg> Add Birthday</button>
 </section>
 
 @let birthdaysValue = birthdays();
@@ -16,7 +16,7 @@
                         (click)="call.emit(birthday._id!)"
                         aria-label="Call"
                 >
-                    <svg uiIcon="phone-arrow-up" class="icon call-icon"/>
+                    <svg uiIcon="phone-arrow-up" class="icon call-icon"></svg>
                 </button>
 
                 <!-- Edit -->
@@ -24,7 +24,7 @@
                         (click)="edit.emit(birthday)"
                         aria-label="Edit birthday"
                 >
-                    <svg uiIcon="pencil-square" class="icon"/>
+                    <svg uiIcon="pencil-square" class="icon"></svg>
                 </button>
 
                 <!-- Delete -->
@@ -32,7 +32,7 @@
                         (click)="remove.emit(birthday._id!)"
                         aria-label="Delete birthday"
                 >
-                    <svg uiIcon="trash" class="icon delete-icon"/>
+                    <svg uiIcon="trash" class="icon delete-icon"></svg>
 
                 </button>
             </app-birthday-action-card>

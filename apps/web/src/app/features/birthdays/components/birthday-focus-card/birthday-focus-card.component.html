@@ -3,7 +3,7 @@
         <div class="focus-card__label">Next up</div>
         <h3 class="focus-card__name">{{ birthday()!.name | titlecase }}</h3>
         <div class="focus-card__meta">
-            <svg uiIcon="cake" class="focus-card__empty-icon" />
+            <svg uiIcon="cake" class="focus-card__empty-icon"></svg>
             <span>
                 {{ birthday()!.birthMonth }} / {{ birthday()!.birthDay }}
                 @if (birthday()!.birthYear) {
@@ -18,7 +18,7 @@
     </button>
 } @else {
     <div class="focus-card__empty">
-        <svg uiIcon="cake" class="focus-card__empty-icon" />
+        <svg uiIcon="cake" class="focus-card__empty-icon"></svg>
         <p class="focus-card__empty-text">
             Select a birthday<br />
             and see details here
