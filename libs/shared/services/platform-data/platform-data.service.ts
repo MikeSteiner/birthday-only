@@ -25,18 +25,21 @@ export class PlatformDataService {
   readonly domainOrigin = this.getDomainOrigin();
 
   constructor() {
-    if (this.isBrowser) {
+    if (this.isBrowser && this.window) {
       this.ngZone.runOutsideAngular(() => {
-        fromEvent(window, 'resize').pipe(
+        fromEvent(this.window, 'resize')
+        .pipe(
           debounceTime(300),
-          map((event) => (event.target as Window).innerWidth),
+          map(() => this.window!.innerWidth),
           distinctUntilChanged(),
           takeUntilDestroyed(this.destroyRef),
-        ).subscribe(width => {
+        )
+        .subscribe(width => {
           this.windowWidthChange.set(width);
         });
       });
     }
+
   }
 
   private getDomainOrigin(): string {
