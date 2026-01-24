@@ -1,56 +1,73 @@
 :host {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--ds-z__sticky);
 }
 
+/* ===============================
+   HEADER
+   =============================== */
+
 .header {
-  padding: 1.25rem 2rem;
+  padding: 0.75rem 1.5rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
 
-  background: linear-gradient(
-                  135deg,
-                  #fbbf24 0%,
-                  #f97316 100%
-  );
-
-  color: #1f2937;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: var(--ds-color-special-yellow-dark);
+  box-shadow: var(--ds-shadow__md);
 }
 
-/* Title */
-.title {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
+/* ===============================
+   BRAND
+   =============================== */
+
+.app-logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* Right side */
+.app-logo__icon {
+  display: block;
+}
+
+.app-logo__text {
+  margin: 0;
+  font-size: var(--ds-font-size__lg);
+  font-weight: var(--ds-font-weight__bold);
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ===============================
+   ACTIONS
+   =============================== */
+
 .header-actions {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-/* User email pill */
 .user-email {
-  font-size: 0.85rem;
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(4px);
-  font-weight: 500;
+  font-size: var(--ds-font-size__sm);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--ds-radius__full);
+
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: var(--ds-font-weight__medium);
 }
 
-/* Button override for header */
+/* Header button refinement */
 .header-actions .btn-secondary {
-  border-color: rgba(0, 0, 0, 0.4);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.35);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
 }

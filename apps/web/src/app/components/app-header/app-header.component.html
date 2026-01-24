@@ -1,10 +1,66 @@
 <header class="header">
-    <h1 class="title">Birthday Only</h1>
+    <div class="app-logo">
+        <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                aria-hidden="true"
+                class="app-logo__icon"
+        >
+            <!-- Box body -->
+            <rect
+                    x="3"
+                    y="9"
+                    width="18"
+                    height="12"
+                    rx="2"
+                    fill="var(--ds-color-main-orange)"
+                    fill-opacity="0.85"
+            />
+
+            <!-- Box lid -->
+            <rect
+                    x="3"
+                    y="7"
+                    width="18"
+                    height="4"
+                    rx="1"
+                    fill="var(--ds-color-main-yellow)"
+                    fill-opacity="0.85"
+            />
+
+            <!-- Vertical ribbon -->
+            <rect
+                    x="11"
+                    y="7"
+                    width="2"
+                    height="14"
+                    fill="var(--ds-color-main-yellow)"
+                    fill-opacity="0.9"
+            />
+
+            <!-- Bow -->
+            <path
+                    d="M12 7c-2 0-3-1-3-2s1-2 3-2
+           M12 7c2 0 3-1 3-2s-1-2-3-2"
+                    stroke="var(--ds-color-main-orange)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    opacity="0.9"
+            />
+        </svg>
+
+        <h1 class="app-logo__text">BDOnly</h1>
+    </div>
 
     @if (user()) {
         <div class="header-actions">
             <span class="user-email">{{ user()!.email }}</span>
-            <button type="button" class="btn-secondary" (click)="logout.emit()">Logout</button>
+            <button type="button" class="btn-secondary" (click)="logout.emit()">
+                Logout
+            </button>
         </div>
     }
 </header>

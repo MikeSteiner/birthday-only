@@ -1,29 +1,69 @@
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
+@use '../../../../../../../../libs/shared/styles/web/ds-variables' as ds-variables;
 
+:host {
+  padding: 1rem;
+  background: var(--ds-color-background-bg4);
+  border-radius: var(--ds-radius__xl);
 
-.upcoming-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.upcoming-card {
+// TODO: extract to common place
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &.today {
-    border-color: #ffc107;
-    background: #fffbea;
-  }
-
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ds-color-special-border);
 }
 
+// TODO: extract to typography
+.ds-h2 {
+  margin: 0;
+
+  font-size: var(--ds-font-size__lg);
+  font-weight: var(--ds-font-weight__semibold);
+  color: var(--ds-color-text-heading);
+
+  position: relative;
+  padding-left: 0.75rem;
+}
+
+.upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.upcoming-count {
+  font-size: var(--ds-font-size__xs);
+  color: var(--ds-color-text-secondary);
+}
+
+/* Badges */
+.badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--ds-radius__full);
+
+  font-size: var(--ds-font-size__xs);
+  font-weight: var(--ds-font-weight__semibold);
+  white-space: nowrap;
+}
+
+.badge--today {
+  background: rgba(var(--ds-color-main-yellow-rgb), 0.25);
+  color: var(--ds-color-text-heading);
+}
+
+.badge--tomorrow {
+  background: rgba(var(--ds-color-main-orange-rgb), 0.25);
+  color: var(--ds-color-text-heading);
+}
+
+.badge--soon {
+  background: rgba(var(--ds-color-main-blue-rgb), 0.18);
+  color: var(--ds-color-text-heading);
+}
