@@ -1,5 +1,5 @@
-@use '../../../../../../../../libs/shared/styles/web/layout';
-@use '../../../../../../../../libs/shared/styles/web/ds-variables' as ds-variables;
+@use 'web/layout';
+@use 'web/ds-variables' as ds-variables;
 
 :host {
   // Page layout

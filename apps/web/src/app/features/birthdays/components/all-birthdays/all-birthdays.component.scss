@@ -1,5 +1,5 @@
-@use '../../../../../../../../libs/shared/styles/web/ds-variables' as ds-variables;
-@use '../../../../../../../../libs/shared/styles/web/mixins' as mixins;
+@use 'web/ds-variables' as ds-variables;
+@use 'web/mixins' as mixins;
 
 :host {
   padding: 1rem;
