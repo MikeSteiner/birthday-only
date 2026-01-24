@@ -39,6 +39,11 @@
   }
 }
 
+.dialog-actions-container {
+  display: flex;
+  gap: 1rem;
+}
+
 .dialog-backdrop {
   position: fixed;
   inset: 0;

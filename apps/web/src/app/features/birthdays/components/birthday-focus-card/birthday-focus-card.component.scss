@@ -1,83 +1,89 @@
-@use '../../../../../../../../libs/shared/styles/web/ds-variables' as vars;
-
 :host {
-  height: 100%;
-  background: var(--sys-color-background-bg5);
-  border-radius: 0.75rem;
+  position: relative;
+  border-radius: var(--ds-radius__xl);
   padding: 1.25rem;
-  box-shadow: var(--sys-color-special-shadow);
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.focus-card__header {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
+
+  background: var(--ds-color-special-black-lighter);
+  color: var(--ds-color-text-inverse);
+  box-shadow: var(--ds-shadow__lg);
+
+  /* Subtle accent ring */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+                    135deg,
+                    var(--ds-color-main-orange),
+                    var(--ds-color-main-yellow)
+    );
+    -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
-.focus-card__title {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--sys-color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.focus-card__content {
+  width: 100%;
+  flex: 1;
+}
+
+.focus-card__label {
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+
+  font-size: var(--ds-font-size__xs);
+  letter-spacing: 0.08em;
+  color: var(--ds-color-main-yellow);
 }
 
 .focus-card__name {
-  margin: 0.5rem 0 0.25rem;
-  font-size: 1.25rem;
-  color: var(--sys-color-text-heading);
+  margin-bottom: 0.25rem;
+  font-size: var(--ds-font-size__xl);
+  font-weight: var(--ds-font-weight__bold);
+  text-align: center;
 }
 
-.focus-card__date,
-.focus-card__age {
-  font-size: 0.875rem;
-  color: var(--sys-color-text-primary);
+.focus-card__meta {
+  margin-bottom: 1.25rem;
+  font-size: var(--ds-font-size__sm);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
 }
 
-.focus-card__actions {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: flex-end;
+.focus-card__action-button {
+  width: 10rem;
+  justify-self: flex-end;
 }
 
 .focus-card__empty {
-  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--sys-color-text-muted);
-  font-size: 0.875rem;
+
+  min-height: 180px;
+  text-align: center;
+  gap: 0.5rem;
 }
 
-/* Badges */
-.badge {
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
+.focus-card__empty-icon {
+  font-size: 2rem;
+  opacity: 0.6;
 }
 
-.badge--today {
-  background: var(--sys-color-main-yellow);
-  color: var(--sys-color-text-heading);
+.focus-card__empty-text {
+  font-size: var(--ds-font-size__sm);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: var(--ds-line-height__relaxed);
 }
-
-.badge--tomorrow {
-  background: var(--sys-color-main-orange);
-  color: var(--sys-color-text-inverse);
-}
-
-.badge--soon {
-  background: var(--sys-color-main-blue);
-  color: var(--sys-color-text-inverse);
-}
-
-/* Call button */
-.btn-icon.call {
-  font-size: 1.25rem;
-  color: var(--sys-color-main-green);
-}
-

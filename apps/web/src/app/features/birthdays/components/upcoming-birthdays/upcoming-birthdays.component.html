@@ -1,31 +1,41 @@
 <section class="section-header">
+    <h2 class="ds-h2">Upcoming Birthdays</h2>
 
-    <h2 class="">
-        <span class="">🔔</span>
-        Upcoming Birthdays
-    </h2>
-    <span class="">
-          {{ birthdays().length }} upcoming
+    <span class="upcoming-count">
+        <span aria-hidden="true">🔔</span>
+        <span>{{ birthdays().length }} upcoming</span>
     </span>
 </section>
 
 @if (birthdays().length === 0) {
-    <div class="">
-        <div class="">🎉</div>
-        <p class="">No upcoming birthdays in the next 30 days</p>
+    <div class="empty-state">
+        <div class="empty-icon">🎉</div>
+        <p>No upcoming birthdays in the next 30 days</p>
     </div>
 } @else {
+    <div class="upcoming-list">
+        @for (bd of birthdays(); track bd._id) {
+            <app-birthday-action-card [birthday]="bd">
 
-    <ul class="upcoming-list">
+<!--TODO: add logic for changing the badge label and color-->
+<!--                <span class="badge"-->
+<!--                      [class.badge&#45;&#45;today]="bd.daysUntil === 0"-->
+<!--                      [class.badge&#45;&#45;tomorrow]="bd.daysUntil === 1"-->
+<!--                      [class.badge&#45;&#45;soon]="bd.daysUntil > 1"-->
+<!--                >-->
+<!--                  @if (bd.daysUntil === 0) {-->
+<!--                      Today 🎉-->
+<!--                  } @else if (bd.daysUntil === 1) {-->
+<!--                      Tomorrow-->
+<!--                  } @else {-->
+<!--                      {{ bd.daysUntil }} days-->
+<!--                  }-->
+<!--                </span>-->
+                <span class="ds-badge" data-ds-color="orange">
+                    {{ 'Today' | titlecase }}
+                </span>
 
-        @for (birthday of birthdays(); track birthday._id) {
-            <li class="card-layout__secondary upcoming-card">
-                {{ birthday.name }} – {{ birthday.daysUntil }} days
-                @if (birthday.age) {
-                    <span>({{ birthday.age }})</span>
-                }
-            </li>
+            </app-birthday-action-card>
         }
-    </ul>
+    </div>
 }
-

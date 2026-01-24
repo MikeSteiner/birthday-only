@@ -1,8 +1,8 @@
 .footer {
   background: linear-gradient(
                   135deg,
-                  #fbbf24 0%,
-                  #f97316 100%
+                  var(--ds-color-special-yellow-dark) 0%,
+                  var(--ds-color-special-yellow-darker) 100%
   );
 
   color: #1f2937;
