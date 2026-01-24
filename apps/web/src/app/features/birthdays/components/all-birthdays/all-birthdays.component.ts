@@ -1,13 +1,14 @@
 import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconDirective } from '../../../../../../../../libs/shared/ui-icons/src';
 import { BirthdayActionCardComponent } from '../birthday-action-card/birthday-action-card.component';
 
 @Component({
-  selector: "app-all-birthdays",
+  selector: 'app-all-birthdays',
   standalone: true,
-  imports: [CommonModule, BirthdayActionCardComponent],
-  templateUrl: "./all-birthdays.component.html",
-  styleUrls: ["./all-birthdays.component.scss"],
+  imports: [CommonModule, BirthdayActionCardComponent, IconDirective],
+  templateUrl: './all-birthdays.component.html',
+  styleUrls: ['./all-birthdays.component.scss'],
 })
 export class AllBirthdaysComponent {
   readonly birthdays = input<any[]>([]);
