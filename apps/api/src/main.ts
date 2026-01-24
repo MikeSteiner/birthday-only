@@ -22,7 +22,7 @@ async function bootstrap() {
       'http://localhost:4200',
       'http://localhost:4300',
       'http://localhost:8100',
-      'https://your-app.netlify.app',  // Web app on Netlify URL here
+      'https://birthday-only.netlify.app',  // Web app on Netlify URL here
       feUrl,
     ].filter(Boolean),
     credentials: true,
