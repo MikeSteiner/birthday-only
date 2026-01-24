@@ -1,7 +1,7 @@
 import { TitleCasePipe } from "@angular/common";
 import { Component, computed, input } from "@angular/core";
+import { IconDirective } from '@bd-only/ui-icons';
 import { Birthday } from "@birthday-app/shared";
-import { IconDirective } from '../../../../../../../../libs/shared/ui-icons/src';
 
 @Component({
   selector: 'app-birthday-focus-card',

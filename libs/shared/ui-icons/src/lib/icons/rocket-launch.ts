@@ -1,1 +1,0 @@
-export const ROCKET_LAUNCH_SOLID_24x24 = `` as const;

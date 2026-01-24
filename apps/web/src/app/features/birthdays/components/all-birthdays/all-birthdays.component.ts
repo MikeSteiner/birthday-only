@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconDirective } from '../../../../../../../../libs/shared/ui-icons/src';
+import { IconDirective } from '@bd-only/ui-icons';
 import { BirthdayActionCardComponent } from '../birthday-action-card/birthday-action-card.component';
 
 @Component({
