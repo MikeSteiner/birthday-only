@@ -1,8 +1,8 @@
 export default {
-  displayName: 'ui-icons',
+  displayName: 'bd-icons',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/ui-icons',
+  coverageDirectory: '../../coverage/libs/bd-icons',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1,12 +1,12 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IconDirective } from '@bd-only/ui-icons';
+import { BdIconComponent } from '@bd-only/bd-icons';
 import { BirthdayActionCardComponent } from '../birthday-action-card/birthday-action-card.component';
 
 @Component({
   selector: 'app-upcoming-birthdays',
   standalone: true,
-  imports: [CommonModule, BirthdayActionCardComponent, IconDirective],
+  imports: [BirthdayActionCardComponent, BdIconComponent, TitleCasePipe],
   templateUrl: './upcoming-birthdays.component.html',
   styleUrls: ['./upcoming-birthdays.component.scss'],
 })

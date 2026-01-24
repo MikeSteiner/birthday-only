@@ -46,7 +46,7 @@
   font-size: var(--ds-font-size__xs);
   color: var(--ds-color-text-secondary);
 
-  svg {
+  ui-icon {
     @include mixins.icon-size(1.5rem);
   }
 }

@@ -15,10 +15,10 @@ import { BIRTHDAY_ICONS, IconName } from '../data/icons.data';
     'stroke-linejoin': 'round',
   }
 })
-export class IconDirective {
+export class BdIconDirective {
   private readonly sanitizer = inject(DomSanitizer);
 
-  name = input.required<IconName>({ alias: 'uiIcon' });
+  name = input.required<IconName>({ alias: 'svgName' });
 
   // Compute the safe HTML for the SVG paths
   safeSvg = computed<SafeHtml>(() =>
