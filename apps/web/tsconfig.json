@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
+    "esModuleInterop": true,
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -19,7 +20,11 @@
       "path": "./tsconfig.spec.json"
     }
   ],
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.base.json",
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }
-
-
