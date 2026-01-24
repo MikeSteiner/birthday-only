@@ -1,24 +1,15 @@
-import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
-import { getContext } from '@netlify/angular-runtime/context.mjs';
+import { CommonEngine } from '@angular/ssr/node'
+import { render } from '@netlify/angular-runtime/common-engine.mjs'
 
-const angularAppEngine = new AngularAppEngine();
+const commonEngine = new CommonEngine()
 
-/**
- * Netlify Edge Function entry point.
- * Handles all incoming requests and renders Angular SSR responses.
- */
-export async function netlifyAppEngineHandler(
-  request: Request
-): Promise<Response> {
-  const context = getContext();
+export async function netlifyCommonEngineHandler(request: Request, context: any): Promise<Response> {
+  // Example API endpoints can be defined here.
+  // Uncomment and define endpoints as necessary.
+  // const pathname = new URL(request.url).pathname;
+  // if (pathname === '/api/hello') {
+  //   return Response.json({ message: 'Hello from the API' });
+  // }
 
-  const response = await angularAppEngine.handle(request, context);
-  return response ?? new Response('Not found', { status: 404 });
+  return await render(commonEngine)
 }
-
-/**
- * Request handler used by Angular CLI during dev-server and build.
- */
-export const reqHandler = createRequestHandler(
-  netlifyAppEngineHandler
-);

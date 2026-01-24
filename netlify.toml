@@ -5,5 +5,7 @@ publish = "dist/apps/web/browser"
 [[plugins]]
 package = "@netlify/angular-runtime"
 
-[plugins.inputs]
-angularAppRoot = "dist/apps/web"
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
