@@ -8,12 +8,16 @@
 @if (birthdaysValue.length > 0) {
     <div class="birthdays-grid">
         @for (birthday of birthdaysValue; track birthday._id) {
+            @let isSelected = selectedBirthdayId() === birthday?._id;
             <app-birthday-action-card
-                    [birthday]="birthday">
+                    class="birthday-action-card"
+                    [birthday]="birthday"
+                    [isSelected]="isSelected"
+                    (cardClick)="cardClick.emit($event)">
 
                 <!-- Call -->
                 <button class="btn-icon btn-icon--call"
-                        (click)="call.emit(birthday._id!)"
+                        (click)="call.emit(birthday._id!); $event.stopPropagation()"
                         aria-label="Call"
                 >
                     <bd-icon svgName="phone-arrow-up" class="icon call-icon"></bd-icon>
@@ -21,7 +25,7 @@
 
                 <!-- Edit -->
                 <button class="btn-icon btn-icon--edit"
-                        (click)="edit.emit(birthday)"
+                        (click)="edit.emit(birthday); $event.stopPropagation()"
                         aria-label="Edit birthday"
                 >
                     <bd-icon svgName="pencil-square" class="icon"></bd-icon>
@@ -29,7 +33,7 @@
 
                 <!-- Delete -->
                 <button class="btn-icon btn-icon--delete"
-                        (click)="remove.emit(birthday._id!)"
+                        (click)="remove.emit(birthday._id!); $event.stopPropagation()"
                         aria-label="Delete birthday"
                 >
                     <bd-icon svgName="trash" class="icon delete-icon"></bd-icon>
@@ -39,6 +43,6 @@
         }
     </div>
 } @else {
-    <p class="empty-state">No birthdays yet. Add your first one 🎉</p>
+    <p class="empty-state">No birthdays yet. Add your first one. <bd-icon svgName="rocket-launch"></bd-icon></p>
 }
 
