@@ -48,6 +48,11 @@
   }
 }
 
+.birthday-action-card {
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 button {
   .icon {

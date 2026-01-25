@@ -61,7 +61,7 @@
   --ds-color-special-black-lighter: #323232;
 
   // Pastel colors
-  --ds-color-pastel-pale-green: #33aa33aa;
+  --ds-color-pastel-pale-green: #33aa33aa; // TODO: replace with rgba(51, 170, 51, 0.67)
 
   // Special Alpha colors
   --ds-color-special-shadow: rgba(var(--ds-color-special-border-rgb), 0.24);

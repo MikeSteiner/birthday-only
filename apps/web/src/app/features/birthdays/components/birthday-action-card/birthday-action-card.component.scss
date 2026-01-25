@@ -12,6 +12,10 @@
   box-shadow: var(--ds-shadow__row);
   transition: var(--ds-transition__fast);
 
+  &.selected {
+    border: 1px solid var(--ds-color-main-orange);
+  }
+
   &:hover {
     box-shadow: var(--ds-shadow__row-hover);
   }

@@ -1,19 +1,19 @@
-import { CommonModule } from "@angular/common";
-import { Component, inject, OnInit, signal } from "@angular/core";
-import { Birthday } from "@birthday-app/shared";
-import { AllBirthdaysComponent } from "../../components/all-birthdays/all-birthdays.component";
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { Birthday } from '@birthday-app/shared';
+import { AllBirthdaysComponent } from '../../components/all-birthdays/all-birthdays.component';
 import {
   BirthdayDialogComponent,
   BirthdayDialogInputData,
   BirthdayDialogResultData,
-} from "../../components/birthday-dialog/birthday-dialog.component";
-import { BirthdayFocusCardComponent } from "../../components/birthday-focus-card/birthday-focus-card.component";
-import { DialogService } from "../../components/dialog/dialog.service";
-import { UpcomingBirthdaysComponent } from "../../components/upcoming-birthdays/upcoming-birthdays.component";
-import { BirthdaysStore } from "../../state/bithdays.store";
+} from '../../components/birthday-dialog/birthday-dialog.component';
+import { BirthdayFocusCardComponent } from '../../components/birthday-focus-card/birthday-focus-card.component';
+import { DialogService } from '../../components/dialog/dialog.service';
+import { UpcomingBirthdaysComponent } from '../../components/upcoming-birthdays/upcoming-birthdays.component';
+import { BirthdaysStore } from '../../state/bithdays.store';
 
 @Component({
-  selector: "app-birthdays-list-page",
+  selector: 'app-birthdays-list-page',
   standalone: true,
   imports: [
     CommonModule,
@@ -22,8 +22,8 @@ import { BirthdaysStore } from "../../state/bithdays.store";
     BirthdayFocusCardComponent,
   ],
   providers: [BirthdaysStore],
-  templateUrl: "./birthdays-list-page.component.html",
-  styleUrls: ["./birthdays-list-page.component.scss"],
+  templateUrl: './birthdays-list-page.component.html',
+  styleUrls: ['./birthdays-list-page.component.scss'],
 })
 export class BirthdaysListPageComponent implements OnInit {
   private readonly birthdaysStore = inject(BirthdaysStore);
@@ -33,6 +33,7 @@ export class BirthdaysListPageComponent implements OnInit {
   readonly birthdays = this.birthdaysStore.birthdays;
   readonly upcomingBirthdays = this.birthdaysStore.upcomingBirthdays;
   readonly selectedBirthday = this.birthdaysStore.selectedBirthday;
+  readonly selectedBirthdayId = this.birthdaysStore.selectedBirthdayId;
   readonly loading = this.birthdaysStore.loading;
   readonly error = this.birthdaysStore.error;
 
@@ -81,8 +82,8 @@ export class BirthdaysListPageComponent implements OnInit {
     });
   }
 
-  cardClick(id: string): void {
-    this.birthdaysStore.toggleBirthdaySelection(id)
+  cardClick(id: string | null): void {
+    this.birthdaysStore.toggleBirthdaySelection(id);
   }
 
   delete(id: string): void {
@@ -90,6 +91,6 @@ export class BirthdaysListPageComponent implements OnInit {
   }
 
   call(id: string): void {
-    console.log("CALL action", id);
+    console.log('CALL action', id);
   }
 }

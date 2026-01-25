@@ -11,6 +11,7 @@ import { BirthdayApiService } from "../data/birthday-api.service";
 export interface BirthdaysState {
   birthdays: Birthday[];
   upcomingBirthdays: UpcomingBirthday[];
+  selectedBirthdayId: string | null;
   loading: boolean;
   error?: HttpErrorResponse;
 }
@@ -18,6 +19,7 @@ export interface BirthdaysState {
 const initialState: BirthdaysState = {
   birthdays: [],
   upcomingBirthdays: [],
+  selectedBirthdayId: null,
   loading: false,
   error: undefined,
 };
@@ -31,12 +33,21 @@ export class BirthdaysStore {
   // SELECTORS
   readonly birthdays = computed(() => this.state().birthdays);
   readonly upcomingBirthdays = computed(() => this.state().upcomingBirthdays);
+  readonly selectedBirthdayId = computed(() => this.state().selectedBirthdayId);
   readonly loading = computed(() => this.state().loading);
   readonly error = computed(() => this.state().error);
 
   // Computed selectors
   readonly hasBirthdays = computed(() => this.birthdays().length > 0);
   readonly hasUpcoming = computed(() => this.upcomingBirthdays().length > 0);
+  readonly selectedBirthday = computed(() => {
+    const id = this.selectedBirthdayId();
+    if (!id) {
+      return null;
+    }
+
+    return this.birthdays().find(b => b._id === id) ?? null;
+  });
 
   // UPDATERS
   updateBirthdays(birthdays: Birthday[]): void {
@@ -45,6 +56,21 @@ export class BirthdaysStore {
 
   updateUpcomingBirthdays(upcomingBirthdays: UpcomingBirthday[]): void {
     patchState(this.state, { upcomingBirthdays });
+  }
+
+  toggleBirthdaySelection(birthdayId: string | null): void {
+    const currentId = this.state().selectedBirthdayId;
+    const isSame = currentId === birthdayId;
+
+    patchState(this.state, {
+      selectedBirthdayId: isSame
+        ? initialState.selectedBirthdayId
+        : birthdayId
+    });
+  }
+
+  clearSelection(): void {
+    patchState(this.state, { selectedBirthdayId: initialState.selectedBirthdayId });
   }
 
   clearError(): void {
