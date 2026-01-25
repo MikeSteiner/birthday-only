@@ -1,6 +1,7 @@
 <section class="dashboard-top__section">
     <app-upcoming-birthdays
             [birthdays]="upcomingBirthdays()"
+            [selectedBirthdayId]="selectedBirthdayId()"
     />
 
     <app-birthday-focus-card
@@ -10,6 +11,7 @@
 
 <app-all-birthdays
         [birthdays]="birthdays()"
+        [selectedBirthdayId]="selectedBirthdayId()"
         (remove)="delete($event)"
         (edit)="openEdit($event)"
         (call)="call($event)"

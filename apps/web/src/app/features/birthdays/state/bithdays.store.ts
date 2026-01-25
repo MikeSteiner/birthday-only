@@ -1,16 +1,17 @@
-import { HttpErrorResponse } from "@angular/common/http";
-import { computed, inject, Injectable } from "@angular/core";
-import { tapResponse } from "@ngrx/operators";
-import { patchState, signalState } from "@ngrx/signals";
-import { rxMethod } from "@ngrx/signals/rxjs-interop";
-import { pipe, switchMap } from "rxjs";
-import { tap } from "rxjs/operators";
-import { Birthday, BirthdayDto, UpdateBirthdayRequest, UpcomingBirthday } from '@bd-only/shared';
-import { BirthdayApiService } from "../data/birthday-api.service";
+import { HttpErrorResponse } from '@angular/common/http';
+import { computed, inject, Injectable } from '@angular/core';
+import { Birthday, BirthdayDto, UpcomingBirthday } from '@bd-only/shared';
+import { tapResponse } from '@ngrx/operators';
+import { patchState, signalState } from '@ngrx/signals';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { pipe, switchMap } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { BirthdayApiService } from '../data/birthday-api.service';
 
 export interface BirthdaysState {
   birthdays: BirthdayDto[];
   upcomingBirthdays: UpcomingBirthday[];
+  selectedBirthdayId: string | null;
   loading: boolean;
   error?: HttpErrorResponse;
 }
@@ -18,6 +19,7 @@ export interface BirthdaysState {
 const initialState: BirthdaysState = {
   birthdays: [],
   upcomingBirthdays: [],
+  selectedBirthdayId: null,
   loading: false,
   error: undefined,
 };
@@ -31,12 +33,21 @@ export class BirthdaysStore {
   // SELECTORS
   readonly birthdays = computed(() => this.state().birthdays);
   readonly upcomingBirthdays = computed(() => this.state().upcomingBirthdays);
+  readonly selectedBirthdayId = computed(() => this.state().selectedBirthdayId);
   readonly loading = computed(() => this.state().loading);
   readonly error = computed(() => this.state().error);
 
   // Computed selectors
   readonly hasBirthdays = computed(() => this.birthdays().length > 0);
   readonly hasUpcoming = computed(() => this.upcomingBirthdays().length > 0);
+  readonly selectedBirthday = computed(() => {
+    const id = this.selectedBirthdayId();
+    if (!id) {
+      return null;
+    }
+
+    return this.birthdays().find(b => b._id === id) ?? null;
+  });
 
   // UPDATERS
   updateBirthdays(birthdays: BirthdayDto[]): void {
@@ -45,6 +56,21 @@ export class BirthdaysStore {
 
   updateUpcomingBirthdays(upcomingBirthdays: UpcomingBirthday[]): void {
     patchState(this.state, { upcomingBirthdays });
+  }
+
+  toggleBirthdaySelection(birthdayId: string | null): void {
+    const currentId = this.state().selectedBirthdayId;
+    const isSame = currentId === birthdayId;
+
+    patchState(this.state, {
+      selectedBirthdayId: isSame
+        ? initialState.selectedBirthdayId
+        : birthdayId
+    });
+  }
+
+  clearSelection(): void {
+    patchState(this.state, { selectedBirthdayId: initialState.selectedBirthdayId });
   }
 
   clearError(): void {
@@ -122,7 +148,7 @@ export class BirthdaysStore {
           tapResponse({
             next: (updatedBirthday) => {
               const updatedBirthdays = this.state().birthdays.map((b) =>
-                (b as any)._id === id ? updatedBirthday : b
+                (b as any)._id === id ? updatedBirthday : b,
               );
               this.updateBirthdays(updatedBirthdays);
               // Reload upcoming to reflect the changes
@@ -145,7 +171,7 @@ export class BirthdaysStore {
           tapResponse({
             next: () => {
               const updatedBirthdays = this.state().birthdays.filter(
-                (b) => (b as any)._id !== id
+                (b) => (b as any)._id !== id,
               );
               this.updateBirthdays(updatedBirthdays);
               // Reload upcoming to reflect the deletion
