@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { RegisterRequest, LoginResponse, LoginRequest } from '@birthday-app/shared';
+import { RegisterRequest, LoginResponse, LoginRequest } from '@bd-only/shared';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({

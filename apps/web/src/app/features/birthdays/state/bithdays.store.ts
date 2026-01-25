@@ -1,15 +1,15 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { computed, inject, Injectable } from "@angular/core";
-import { Birthday, CreateBirthdayRequest, UpcomingBirthday, UpdateBirthdayRequest } from '@birthday-app/shared';
 import { tapResponse } from "@ngrx/operators";
 import { patchState, signalState } from "@ngrx/signals";
 import { rxMethod } from "@ngrx/signals/rxjs-interop";
 import { pipe, switchMap } from "rxjs";
 import { tap } from "rxjs/operators";
+import { Birthday, BirthdayDto, UpdateBirthdayRequest, UpcomingBirthday } from '@bd-only/shared';
 import { BirthdayApiService } from "../data/birthday-api.service";
 
 export interface BirthdaysState {
-  birthdays: Birthday[];
+  birthdays: BirthdayDto[];
   upcomingBirthdays: UpcomingBirthday[];
   loading: boolean;
   error?: HttpErrorResponse;
@@ -39,7 +39,7 @@ export class BirthdaysStore {
   readonly hasUpcoming = computed(() => this.upcomingBirthdays().length > 0);
 
   // UPDATERS
-  updateBirthdays(birthdays: Birthday[]): void {
+  updateBirthdays(birthdays: BirthdayDto[]): void {
     patchState(this.state, { birthdays });
   }
 
@@ -93,7 +93,7 @@ export class BirthdaysStore {
     ),
   );
 
-  readonly createBirthday = rxMethod<CreateBirthdayRequest>(
+  readonly createBirthday = rxMethod<Birthday>(
     pipe(
       tap(() => patchState(this.state, { loading: true, error: undefined })),
       switchMap((birthday) => {
@@ -114,7 +114,7 @@ export class BirthdaysStore {
     ),
   );
 
-  readonly updateBirthday = rxMethod<{ id: string; birthday: UpdateBirthdayRequest }>(
+  readonly updateBirthday = rxMethod<{ id: string; birthday: Birthday }>(
     pipe(
       tap(() => patchState(this.state, { loading: true, error: undefined })),
       switchMap(({ id, birthday }) => {

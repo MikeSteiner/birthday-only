@@ -6,7 +6,7 @@ import {
   Injector,
   Type,
 } from "@angular/core";
-import { PlatformDataService } from "../../../../../../../../libs/shared/services/platform-data";
+import { PlatformDataService } from '@bd-only/shared';
 import { DialogContainerComponent } from "./dialog-container.component";
 import { DialogRef } from "./dialog-ref";
 import { DIALOG_DATA } from "./dialog.tokens";
