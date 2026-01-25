@@ -1,7 +1,7 @@
 import { BELL_ALERT_SOLID_24x24  } from '../icons/bell-alert';
 import { CAKE_24x24 } from '../icons/cake';
 import { PENCIL_SQUARE_SOLID_24x24 } from '../icons/pencil-square';
-import { PHONE_ARROW_UP_RIGHT_SOLID_24x24 } from '../icons/phone-arrow-up-right_-solid_24x24';
+import { PHONE_ARROW_UP_RIGHT_SOLID_24x24 } from '../icons/phone-arrow-up-right_solid_24x24';
 import { PLUS_SOLID_24x24 } from '../icons/plus';
 import { PLUS_CIRCLE_SOLID_24x24 } from '../icons/plus-circle';
 import { ROCKET_LAUNCH_SOLID_24x24 } from '../icons/rocket-launch';

@@ -95,7 +95,7 @@
   gap: 0.5rem;
 }
 
-.focus-card__empty-icon {
+.focus-card__icon {
   @include mixins.icon-size(2.5rem);
 
   opacity: 0.6;
