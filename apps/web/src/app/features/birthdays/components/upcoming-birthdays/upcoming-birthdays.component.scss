@@ -1,4 +1,5 @@
-@use '../../../../../../../../libs/shared/styles/web/ds-variables' as ds-variables;
+@use 'web/ds-variables.scss' as ds-variables;
+@use 'web/mixins' as mixins;
 
 :host {
   padding: 1rem;
@@ -39,8 +40,15 @@
 }
 
 .upcoming-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: var(--ds-font-size__xs);
   color: var(--ds-color-text-secondary);
+
+  ui-icon {
+    @include mixins.icon-size(1.5rem);
+  }
 }
 
 /* Badges */

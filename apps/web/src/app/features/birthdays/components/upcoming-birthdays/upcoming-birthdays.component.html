@@ -2,20 +2,23 @@
     <h2 class="ds-h2">Upcoming Birthdays</h2>
 
     <span class="upcoming-count">
-        <span aria-hidden="true">🔔</span>
-        <span>{{ birthdays().length }} upcoming</span>
+        <bd-icon svgName="bell-alert" aria-hidden="true"></bd-icon>
+        <span>Upcoming {{ birthdays().length }}</span>
     </span>
 </section>
 
-@if (birthdays().length === 0) {
+@let birthdaysValue = birthdays();
+@if (birthdaysValue.length === 0) {
     <div class="empty-state">
-        <div class="empty-icon">🎉</div>
         <p>No upcoming birthdays in the next 30 days</p>
     </div>
 } @else {
     <div class="upcoming-list">
-        @for (bd of birthdays(); track bd._id) {
-            <app-birthday-action-card [birthday]="bd">
+        @for (birthday of birthdaysValue; track birthday._id) {
+            @let isSelected = selectedBirthdayId() === birthday?._id;
+            <app-birthday-action-card [birthday]="birthday"
+                                      [isSelected]="isSelected"
+                                      (cardClick)="cardClick.emit($event)">
 
 <!--TODO: add logic for changing the badge label and color-->
 <!--                <span class="badge"-->

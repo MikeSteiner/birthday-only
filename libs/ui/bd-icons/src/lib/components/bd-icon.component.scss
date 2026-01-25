@@ -1,0 +1,12 @@
+@use 'web/mixins' as mixins;
+
+:host {
+  @include mixins.icon-size(1rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  color: inherit;
+}

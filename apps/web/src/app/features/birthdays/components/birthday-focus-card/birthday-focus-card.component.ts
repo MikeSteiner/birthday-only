@@ -1,14 +1,13 @@
-import { TitleCasePipe } from "@angular/common";
-import { Component, computed, input } from "@angular/core";
-import { Birthday } from "@birthday-app/shared";
+import { TitleCasePipe } from '@angular/common';
+import { Component, computed, input } from '@angular/core';
+import { BdIconComponent } from '@bd-only/bd-icons';
+import { Birthday } from '@birthday-app/shared';
 
 @Component({
-  selector: "app-birthday-focus-card",
-  templateUrl: "./birthday-focus-card.component.html",
-  styleUrls: ["./birthday-focus-card.component.scss"],
-  imports: [
-    TitleCasePipe
-  ]
+  selector: 'app-birthday-focus-card',
+  templateUrl: './birthday-focus-card.component.html',
+  styleUrls: ['./birthday-focus-card.component.scss'],
+  imports: [TitleCasePipe, BdIconComponent],
 })
 export class BirthdayFocusCardComponent {
   readonly birthday = input<Birthday | null>();
@@ -24,6 +23,6 @@ export class BirthdayFocusCardComponent {
     //
     // return null;
 
-    return "today";
+    return 'today';
   });
 }

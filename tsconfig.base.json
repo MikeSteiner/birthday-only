@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bd-only/bd-icons": ["libs/ui/bd-icons/src/index.ts"],
       "@birthday-app/shared": ["libs/shared/src/index.ts"]
     }
   },
