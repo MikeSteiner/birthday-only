@@ -1,3 +1,5 @@
+@use 'web/mixins' as mixins;
+
 :host {
   position: relative;
   border-radius: var(--ds-radius__xl);
@@ -8,7 +10,7 @@
   align-items: center;
   gap: 1rem;
 
-  background: var(--ds-color-special-black-lighter);
+  background: var(--ds-color-pastel-pale-green);
   color: var(--ds-color-text-inverse);
   box-shadow: var(--ds-shadow__lg);
 
@@ -35,6 +37,9 @@
 
 .focus-card__content {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: 1;
 }
 
@@ -55,15 +60,28 @@
 }
 
 .focus-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
   margin-bottom: 1.25rem;
   font-size: var(--ds-font-size__sm);
   color: rgba(255, 255, 255, 0.75);
-  text-align: center;
+
+  svg {
+    @include mixins.icon-size(2.5rem);
+    color: var(--ds-color-main-yellow);
+  }
 }
 
 .focus-card__action-button {
   width: 10rem;
   justify-self: flex-end;
+
+  svg {
+    @include mixins.icon-size(1.5rem);
+    color: var(--ds-color-main-white);
+  }
 }
 
 .focus-card__empty {
@@ -78,7 +96,8 @@
 }
 
 .focus-card__empty-icon {
-  font-size: 2rem;
+  @include mixins.icon-size(2.5rem);
+
   opacity: 0.6;
 }
 

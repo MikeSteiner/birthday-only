@@ -2,14 +2,13 @@
     <h2 class="ds-h2">Upcoming Birthdays</h2>
 
     <span class="upcoming-count">
-        <span aria-hidden="true">🔔</span>
-        <span>{{ birthdays().length }} upcoming</span>
+        <bd-icon svgName="bell-alert" aria-hidden="true"></bd-icon>
+        <span>Upcoming {{ birthdays().length }}</span>
     </span>
 </section>
 
 @if (birthdays().length === 0) {
     <div class="empty-state">
-        <div class="empty-icon">🎉</div>
         <p>No upcoming birthdays in the next 30 days</p>
     </div>
 } @else {

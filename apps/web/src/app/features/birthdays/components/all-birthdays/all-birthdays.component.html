@@ -1,35 +1,39 @@
 <section class="section-header">
     <h2 class="ds-h2">Your Birthdays</h2>
-    <button class="btn-primary" (click)="add.emit()">+ Add Birthday</button>
+    <button class="btn-primary" (click)="add.emit()">
+        <bd-icon svgName="plus" class="icon"></bd-icon> Add Birthday</button>
 </section>
 
-@if (birthdays().length > 0) {
+@let birthdaysValue = birthdays();
+@if (birthdaysValue.length > 0) {
     <div class="birthdays-grid">
-        @for (bd of birthdays(); track bd._id) {
+        @for (birthday of birthdaysValue; track birthday._id) {
             <app-birthday-action-card
-                    [birthday]="bd">
-                <button
-                        class="btn-icon btn-icon--edit"
-                        (click)="edit.emit(bd)"
-                        aria-label="Edit birthday"
-                >
-                    ✏️
-                </button>
+                    [birthday]="birthday">
 
-                <button
-                        class="btn-icon btn-icon--call"
-                        (click)="call.emit(bd._id!)"
+                <!-- Call -->
+                <button class="btn-icon btn-icon--call"
+                        (click)="call.emit(birthday._id!)"
                         aria-label="Call"
                 >
-                    📞
+                    <bd-icon svgName="phone-arrow-up" class="icon call-icon"></bd-icon>
                 </button>
 
-                <button
-                        class="btn-icon btn-icon--delete"
-                        (click)="remove.emit(bd._id!)"
+                <!-- Edit -->
+                <button class="btn-icon btn-icon--edit"
+                        (click)="edit.emit(birthday)"
+                        aria-label="Edit birthday"
+                >
+                    <bd-icon svgName="pencil-square" class="icon"></bd-icon>
+                </button>
+
+                <!-- Delete -->
+                <button class="btn-icon btn-icon--delete"
+                        (click)="remove.emit(birthday._id!)"
                         aria-label="Delete birthday"
                 >
-                    🗑
+                    <bd-icon svgName="trash" class="icon delete-icon"></bd-icon>
+
                 </button>
             </app-birthday-action-card>
         }
