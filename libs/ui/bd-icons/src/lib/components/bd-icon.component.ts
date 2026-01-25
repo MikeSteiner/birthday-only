@@ -1,5 +1,4 @@
-import { Component, inject, input } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, input } from '@angular/core';
 import { IconName } from '../data/icons.data';
 import { BdIconDirective } from './bd-icon.directive';
 
@@ -16,7 +15,5 @@ import { BdIconDirective } from './bd-icon.directive';
   ],
 })
 export class BdIconComponent {
-  private readonly sanitizer = inject(DomSanitizer);
-
   readonly svgName = input.required<IconName>();
 }

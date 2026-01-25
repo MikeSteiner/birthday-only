@@ -4,14 +4,16 @@
     />
 
     <app-birthday-focus-card
-            [birthday]="upcomingBirthdays()[0]"
+            [birthday]="selectedBirthday()"
     />
 </section>
 
 <app-all-birthdays
         [birthdays]="birthdays()"
+        [selectedBirthday]="selectedBirthday()"
         (remove)="delete($event)"
         (edit)="openEdit($event)"
         (call)="call($event)"
         (add)="openAdd()"
+        (cardClick)="cardClick($event)"
 />

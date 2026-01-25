@@ -32,6 +32,7 @@ export class BirthdaysListPageComponent implements OnInit {
   // ===== Store state (signals) =====
   readonly birthdays = this.birthdaysStore.birthdays;
   readonly upcomingBirthdays = this.birthdaysStore.upcomingBirthdays;
+  readonly selectedBirthday = this.birthdaysStore.selectedBirthday;
   readonly loading = this.birthdaysStore.loading;
   readonly error = this.birthdaysStore.error;
 
@@ -78,6 +79,10 @@ export class BirthdaysListPageComponent implements OnInit {
         this.birthdaysStore.createBirthday(result);
       }
     });
+  }
+
+  cardClick(id: string): void {
+    this.birthdaysStore.toggleBirthdaySelection(id)
   }
 
   delete(id: string): void {
