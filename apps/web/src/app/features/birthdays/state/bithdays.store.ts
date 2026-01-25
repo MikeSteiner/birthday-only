@@ -170,6 +170,10 @@ export class BirthdaysStore {
         return this.birthdayApiService.delete(id).pipe(
           tapResponse({
             next: () => {
+              if (this.selectedBirthdayId() === id) {
+                this.clearSelection();
+              }
+
               const updatedBirthdays = this.state().birthdays.filter(
                 (b) => (b as any)._id !== id
               );
