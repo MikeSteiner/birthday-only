@@ -12,8 +12,8 @@ export const DAYS_VALIDATION = {
 } as const;
 
 export const MONTHS_INDEX = {
-  min: 1,
-  max: 12,
+  min: 0,
+  max: 11,
 } as const;
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -57,8 +57,8 @@ export class BirthdayFormService {
     ]),
     birthMonth: this.formBuilder.nonNullable.control(5, [
       Validators.required,
-      Validators.min(MONTHS_INDEX.min + 1),
-      Validators.max(MONTHS_INDEX.max + 1)
+      Validators.min(MONTHS_INDEX.min),
+      Validators.max(MONTHS_INDEX.max)
     ]),
     birthYear: this.formBuilder.control(null, [
       Validators.min(YEAR_VALIDATION.min),

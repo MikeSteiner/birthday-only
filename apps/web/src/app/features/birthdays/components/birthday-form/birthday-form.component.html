@@ -1,38 +1,60 @@
 <form [formGroup]="form()" (ngSubmit)="submit.emit($event)">
+
+    <!-- Name -->
     <div class="form-group">
-        <label>Name</label>
+        <label>Name *</label>
         <input type="text" formControlName="name"/>
     </div>
 
     <div class="form-row">
-        <div class="form-group">
-            <label>Month</label>
-            <select formControlName="birthMonth">
-                @for (month of [1,2,3,4,5,6,7,8,9,10,11,12]; track month) {
-                    <option [value]="month">
-                        {{ month }}
-                    </option>
-                }
 
-            </select>
-        </div>
-
+        <!-- Day -->
         <div class="form-group">
-            <label>Day</label>
+            <label>Day *</label>
             <input type="number"
                    formControlName="birthDay"
                    min="1"
                    max="31"
             />
         </div>
+
+        <!-- Month -->
+        <div class="form-group">
+            <label>Month *</label>
+            <select formControlName="birthMonth">
+                @for (month of months; track month.value) {
+                    <option [value]="month.value">
+                        {{ month.full }}
+                    </option>
+                }
+            </select>
+        </div>
+
     </div>
 
+    <!-- Year -->
     <div class="form-group">
-        <label>Year (Optional)</label>
+        <label>Year (optional)</label>
         <input type="number"
                formControlName="birthYear"
                min="1900"
                max="2100"
+        />
+    </div>
+
+    <!-- Phone Number-->
+    <div class="form-group">
+        <label>Phone number (optional)</label>
+        <input type="number"
+               formControlName="phoneNumber"
+        />
+    </div>
+
+    <!-- Greeting Message-->
+    <div class="form-group">
+        <label>Greeting (optional)</label>
+        <input type="text"
+               formControlName="greetingMessage"
         />
     </div>
 </form>
