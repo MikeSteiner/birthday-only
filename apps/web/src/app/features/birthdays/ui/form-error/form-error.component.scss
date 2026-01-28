@@ -1,0 +1,9 @@
+@use 'web/mixins' as mixins;
+
+:host {
+  margin-top: 0.5rem;
+
+  color: var(--ds-color-main-red);
+  font-size: var(--ds-font-size__sm);
+  font-weight: var(--ds-font-weight__medium);
+}

@@ -3,7 +3,12 @@
     <!-- Name -->
     <div class="form-group">
         <label>Name *</label>
-        <input type="text" formControlName="name"/>
+        <input type="text"
+               formControlName="name"
+               [class.error]="hasError('name')"/>
+        <bd-form-error
+                [control]="form().get('name')"
+                [messages]="NAME_ERRORS"/>
     </div>
 
     <div class="form-row">
@@ -15,19 +20,28 @@
                    formControlName="birthDay"
                    min="1"
                    max="31"
+                   [class.error]="hasError('birthDay')"/>
+            <bd-form-error
+                    [control]="form().get('birthDay')"
+                    [messages]="BIRTH_DAY_ERRORS"
             />
         </div>
 
         <!-- Month -->
         <div class="form-group">
             <label>Month *</label>
-            <select formControlName="birthMonth">
+            <select formControlName="birthMonth"
+                    [class.error]="hasError('birthMonth')">
                 @for (month of months; track month.value) {
                     <option [value]="month.value">
                         {{ month.full }}
                     </option>
                 }
             </select>
+            <bd-form-error
+                    [control]="form().get('birthMonth')"
+                    [messages]="BIRTH_MONTH_ERRORS"
+            />
         </div>
 
     </div>
@@ -39,6 +53,11 @@
                formControlName="birthYear"
                min="1900"
                max="2100"
+               [class.error]="hasError('birthYear')"
+        />
+        <bd-form-error
+                [control]="form().get('birthYear')"
+                [messages]="BIRTH_YEAR_ERRORS"
         />
     </div>
 
@@ -47,14 +66,24 @@
         <label>Phone number (optional)</label>
         <input type="number"
                formControlName="phoneNumber"
+               [class.error]="hasError('phoneNumber')"
+        />
+        <bd-form-error
+                [control]="form().get('phoneNumber')"
+                [messages]="PHONE_NUMBER_ERRORS"
         />
     </div>
 
     <!-- Greeting Message-->
     <div class="form-group">
         <label>Greeting (optional)</label>
-        <input type="text"
-               formControlName="greetingMessage"
+        <textarea type="text"
+                  formControlName="greetingMessage"
+                  [class.error]="hasError('greetingMessage')"
+        ></textarea>
+        <bd-form-error
+                [control]="form().get('greetingMessage')"
+                [messages]="GREETING_MESSAGE_ERRORS"
         />
     </div>
 </form>

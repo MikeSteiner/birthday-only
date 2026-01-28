@@ -32,6 +32,7 @@ export class BirthdayDialogComponent implements OnInit {
   confirm(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      this.form.markAsDirty();
       return;
     }
 
