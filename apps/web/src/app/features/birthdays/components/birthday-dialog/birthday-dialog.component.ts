@@ -1,30 +1,31 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from "@angular/forms";
-import { BirthdayFormService, EditBirthdayFormValue } from '../../service/birthday-form.service';
-import { BirthdayFormComponent } from "../birthday-form/birthday-form.component";
-import { DialogRef } from "../dialog/dialog-ref";
-import { DIALOG_DATA } from "../dialog/dialog.tokens";
+import {
+  BirthdayFormService,
+  EditBirthdayFormValue,
+} from '../../service/birthday-form.service';
+import { BirthdayFormComponent } from '../birthday-form/birthday-form.component';
+import { DialogRef } from '../dialog/dialog-ref';
+import { DIALOG_DATA } from '../dialog/dialog.tokens';
 
 @Component({
-  templateUrl: "./birthday-dialog.component.html",
+  templateUrl: './birthday-dialog.component.html',
   standalone: true,
   imports: [BirthdayFormComponent],
 })
 export class BirthdayDialogComponent implements OnInit {
-  private readonly dialogRef = inject<DialogRef<EditBirthdayFormValue>>(DialogRef);
+  private readonly dialogRef =
+    inject<DialogRef<EditBirthdayFormValue>>(DialogRef);
   private readonly birthdayFormService = inject(BirthdayFormService);
-  protected readonly data = inject<EditBirthdayFormValue | null>(
-    DIALOG_DATA,
-    { optional: true },
-  );
+  protected readonly data = inject<EditBirthdayFormValue | null>(DIALOG_DATA, {
+    optional: true,
+  });
 
   readonly form = this.birthdayFormService.editBirthdayForm;
 
   ngOnInit() {
-    console.log("BirthdayDialogComponent ngOnInit", this.data);
     if (this.data) {
       this.form.patchValue(this.data);
-    } else  {
+    } else {
       this.form.reset();
     }
   }

@@ -148,7 +148,7 @@ export class BirthdaysStore {
           tapResponse({
             next: (updatedBirthday) => {
               const updatedBirthdays = this.state().birthdays.map((b) =>
-                (b as any)._id === id ? updatedBirthday : b,
+                b._id === id ? updatedBirthday : b,
               );
               this.updateBirthdays(updatedBirthdays);
               // Reload upcoming to reflect the changes
@@ -175,7 +175,7 @@ export class BirthdaysStore {
               }
 
               const updatedBirthdays = this.state().birthdays.filter(
-                (b) => (b as any)._id !== id,
+                (b) => b._id !== id,
               );
               this.updateBirthdays(updatedBirthdays);
               // Reload upcoming to reflect the deletion

@@ -23,8 +23,8 @@ export class CreateBirthdayDto {
   birthDay!: number;
 
   @IsInt()
-  @Min(1)
-  @Max(12)
+  @Min(0)
+  @Max(11)
   birthMonth!: number;
 
   // Birth year validation: if provided, must be between 1900 and current year

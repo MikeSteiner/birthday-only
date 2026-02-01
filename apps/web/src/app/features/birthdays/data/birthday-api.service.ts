@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import {
-  BirthdayDto,
-  UpdateBirthdayRequest,
-  UpcomingBirthday, Birthday
-} from '@bd-only/shared';
+import { Birthday, BirthdayDto, UpcomingBirthday } from '@bd-only/shared';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 

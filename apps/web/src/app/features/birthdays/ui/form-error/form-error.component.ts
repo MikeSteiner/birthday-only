@@ -6,6 +6,7 @@ import { AbstractControl } from '@angular/forms';
   templateUrl: './form-error.component.html',
   styleUrls: ['./form-error.component.scss'],
   imports: [],
+  standalone: true
 })
 export class FormErrorComponent {
   control = input<AbstractControl | null>();
