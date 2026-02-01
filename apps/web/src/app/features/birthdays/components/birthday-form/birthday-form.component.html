@@ -1,38 +1,89 @@
 <form [formGroup]="form()" (ngSubmit)="submit.emit($event)">
+
+    <!-- Name -->
     <div class="form-group">
-        <label>Name</label>
-        <input type="text" formControlName="name"/>
+        <label>Name *</label>
+        <input type="text"
+               formControlName="name"
+               [class.error]="hasError('name')"/>
+        <bd-form-error
+                [control]="form().get('name')"
+                [messages]="NAME_ERRORS"/>
     </div>
 
     <div class="form-row">
-        <div class="form-group">
-            <label>Month</label>
-            <select formControlName="birthMonth">
-                @for (month of [1,2,3,4,5,6,7,8,9,10,11,12]; track month) {
-                    <option [value]="month">
-                        {{ month }}
-                    </option>
-                }
 
-            </select>
-        </div>
-
+        <!-- Day -->
         <div class="form-group">
-            <label>Day</label>
+            <label>Day *</label>
             <input type="number"
                    formControlName="birthDay"
                    min="1"
                    max="31"
+                   [class.error]="hasError('birthDay')"/>
+            <bd-form-error
+                    [control]="form().get('birthDay')"
+                    [messages]="BIRTH_DAY_ERRORS"
             />
         </div>
+
+        <!-- Month -->
+        <div class="form-group">
+            <label>Month *</label>
+            <select formControlName="birthMonth"
+                    [class.error]="hasError('birthMonth')">
+                @for (month of months; track month.value) {
+                    <option [value]="month.value">
+                        {{ month.full }}
+                    </option>
+                }
+            </select>
+            <bd-form-error
+                    [control]="form().get('birthMonth')"
+                    [messages]="BIRTH_MONTH_ERRORS"
+            />
+        </div>
+
     </div>
 
+    <!-- Year -->
     <div class="form-group">
-        <label>Year (Optional)</label>
+        <label>Year (optional)</label>
         <input type="number"
                formControlName="birthYear"
                min="1900"
                max="2100"
+               [class.error]="hasError('birthYear')"
+        />
+        <bd-form-error
+                [control]="form().get('birthYear')"
+                [messages]="BIRTH_YEAR_ERRORS"
+        />
+    </div>
+
+    <!-- Phone Number-->
+    <div class="form-group">
+        <label>Phone number (optional)</label>
+        <input type="tel"
+               formControlName="phoneNumber"
+               [class.error]="hasError('phoneNumber')"
+        />
+        <bd-form-error
+                [control]="form().get('phoneNumber')"
+                [messages]="PHONE_NUMBER_ERRORS"
+        />
+    </div>
+
+    <!-- Greeting Message-->
+    <div class="form-group">
+        <label>Greeting (optional)</label>
+        <textarea type="text"
+                  formControlName="greetingMessage"
+                  [class.error]="hasError('greetingMessage')"
+        ></textarea>
+        <bd-form-error
+                [control]="form().get('greetingMessage')"
+                [messages]="GREETING_MESSAGE_ERRORS"
         />
     </div>
 </form>

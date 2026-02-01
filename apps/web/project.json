@@ -23,7 +23,7 @@
         "styles": ["apps/web/src/styles.scss"],
         "scripts": [],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/shared/styles"]
+          "includePaths": ["libs/styles"]
         },
         "server": "apps/web/src/main.server.ts",
         "ssr": {

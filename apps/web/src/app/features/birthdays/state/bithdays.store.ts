@@ -1,15 +1,15 @@
-import { HttpErrorResponse } from "@angular/common/http";
-import { computed, inject, Injectable } from "@angular/core";
-import { Birthday, CreateBirthdayRequest, UpcomingBirthday, UpdateBirthdayRequest } from '@birthday-app/shared';
-import { tapResponse } from "@ngrx/operators";
-import { patchState, signalState } from "@ngrx/signals";
-import { rxMethod } from "@ngrx/signals/rxjs-interop";
-import { pipe, switchMap } from "rxjs";
-import { tap } from "rxjs/operators";
-import { BirthdayApiService } from "../data/birthday-api.service";
+import { HttpErrorResponse } from '@angular/common/http';
+import { computed, inject, Injectable } from '@angular/core';
+import { Birthday, BirthdayDto, UpcomingBirthday } from '@bd-only/shared';
+import { tapResponse } from '@ngrx/operators';
+import { patchState, signalState } from '@ngrx/signals';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { pipe, switchMap } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { BirthdayApiService } from '../data/birthday-api.service';
 
 export interface BirthdaysState {
-  birthdays: Birthday[];
+  birthdays: BirthdayDto[];
   upcomingBirthdays: UpcomingBirthday[];
   selectedBirthdayId: string | null;
   loading: boolean;
@@ -50,7 +50,7 @@ export class BirthdaysStore {
   });
 
   // UPDATERS
-  updateBirthdays(birthdays: Birthday[]): void {
+  updateBirthdays(birthdays: BirthdayDto[]): void {
     patchState(this.state, { birthdays });
   }
 
@@ -119,7 +119,7 @@ export class BirthdaysStore {
     ),
   );
 
-  readonly createBirthday = rxMethod<CreateBirthdayRequest>(
+  readonly createBirthday = rxMethod<Birthday>(
     pipe(
       tap(() => patchState(this.state, { loading: true, error: undefined })),
       switchMap((birthday) => {
@@ -140,7 +140,7 @@ export class BirthdaysStore {
     ),
   );
 
-  readonly updateBirthday = rxMethod<{ id: string; birthday: UpdateBirthdayRequest }>(
+  readonly updateBirthday = rxMethod<{ id: string; birthday: Birthday }>(
     pipe(
       tap(() => patchState(this.state, { loading: true, error: undefined })),
       switchMap(({ id, birthday }) => {
@@ -148,7 +148,7 @@ export class BirthdaysStore {
           tapResponse({
             next: (updatedBirthday) => {
               const updatedBirthdays = this.state().birthdays.map((b) =>
-                (b as any)._id === id ? updatedBirthday : b
+                b._id === id ? updatedBirthday : b,
               );
               this.updateBirthdays(updatedBirthdays);
               // Reload upcoming to reflect the changes
@@ -175,7 +175,7 @@ export class BirthdaysStore {
               }
 
               const updatedBirthdays = this.state().birthdays.filter(
-                (b) => (b as any)._id !== id
+                (b) => b._id !== id,
               );
               this.updateBirthdays(updatedBirthdays);
               // Reload upcoming to reflect the deletion

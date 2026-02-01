@@ -18,11 +18,21 @@ This file lists additional files and features you may want to add for a producti
 - [x] Documentation (README, QUICKSTART, DEPLOYMENT)
 
 ## 📋 Optional Additions
-- [ ] Install ng-mock
-- [ ] Install bootstrap and bootstrap modal
-- [ ] Separate component file html/scss
-- [ ] Introduce CSS variables / theming
+### MY
 - [ ] Extract shared button styles
+- [ ] Extract shared inputs styles
+- [ ] Extract shared selects styles
+- [ ] Extract shared textarea styles
+- [ ] Extract shared expansion panel styles
+- [x] Extract shared dialog library styles
+
+- [x] Add double confirmation when delete
+- [x] Add show hide phone call icon button when there is a phone entered
+- [ ] Add badge today tomorrow coming days ...
+
+### Feature todos
+- [ ] Install ng-mock
+- [ ] Introduce CSS variables / theming
 - [ ] Add dark mode
 - [ ] Add mobile breakpoints
 - [ ] Convert to CSS layers

@@ -15,8 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bd-only/bd-dialog": ["libs/ui/bg-dialog/src/index.ts"],
       "@bd-only/bd-icons": ["libs/ui/bd-icons/src/index.ts"],
-      "@birthday-app/shared": ["libs/shared/src/index.ts"]
+      "@bd-only/shared": ["libs/shared/src/index.ts"],
+      "@bd-only/shared-web": ["libs/shared-web/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

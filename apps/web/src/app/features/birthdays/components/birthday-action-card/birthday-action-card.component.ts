@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Birthday } from '@birthday-app/shared';
+import { BirthdayDto } from '@bd-only/shared';
 
 @Component({
   selector: 'app-birthday-action-card',
@@ -13,7 +13,7 @@ import { Birthday } from '@birthday-app/shared';
   },
 })
 export class BirthdayActionCardComponent {
-  readonly birthday = input.required<Birthday>();
+  readonly birthday = input.required<BirthdayDto>();
   readonly isSelected = input<boolean>(false);
 
   readonly cardClick = output<string | null>();

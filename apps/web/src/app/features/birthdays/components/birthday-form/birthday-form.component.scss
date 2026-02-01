@@ -1,9 +1,79 @@
+// TODO: extract to shared lib styles
 .form-group {
   margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: var(--ds-font-weight__semibold);
+    color: var(--ds-color-text-heading);
+    font-size: var(--ds-font-size__sm);
+  }
+
+  // ✅ When input has error, change label color
+  &:has(input.error) label,
+  &:has(select.error) label,
+  &:has(textarea.error) label {
+    color: var(--ds-color-main-red);
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--ds-color-special-border);
+    border-radius: var(--ds-radius__md);
+    font-size: var(--ds-font-size__md);
+    background: var(--ds-color-background-bg5);
+    color: var(--ds-color-text-heading);
+    transition: all 200ms ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--ds-color-teal__500);
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+    }
+
+    &.error {
+      border-color: var(--ds-color-main-red);
+      background: rgba(239, 68, 68, 0.05);
+
+      &:focus {
+        border-color: var(--ds-color-main-red);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+      }
+    }
+
+    &::placeholder {
+      color: var(--ds-color-text-secondary);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background: var(--ds-color-background-bg3);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
 }
 
 .form-row {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 1rem;
 }

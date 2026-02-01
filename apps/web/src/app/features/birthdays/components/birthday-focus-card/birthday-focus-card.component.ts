@@ -1,7 +1,7 @@
 import { TitleCasePipe } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import { BdIconComponent } from '@bd-only/bd-icons';
-import { Birthday } from '@birthday-app/shared';
+import { BirthdayDto } from '@bd-only/shared';
 
 @Component({
   selector: 'app-birthday-focus-card',
@@ -10,7 +10,7 @@ import { Birthday } from '@birthday-app/shared';
   imports: [TitleCasePipe, BdIconComponent],
 })
 export class BirthdayFocusCardComponent {
-  readonly birthday = input<Birthday | null>();
+  readonly birthday = input<BirthdayDto | null>();
 
   // TODO: Introduce label and key/color
   readonly badgeType = computed(() => {

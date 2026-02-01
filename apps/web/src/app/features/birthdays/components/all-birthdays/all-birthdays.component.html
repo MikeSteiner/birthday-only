@@ -16,12 +16,15 @@
                     (cardClick)="cardClick.emit($event)">
 
                 <!-- Call -->
-                <button class="btn-icon btn-icon--call"
-                        (click)="call.emit(birthday._id!); $event.stopPropagation()"
-                        aria-label="Call"
-                >
-                    <bd-icon svgName="phone-arrow-up" class="icon call-icon"></bd-icon>
-                </button>
+                @if (birthday.phoneNumber) {
+                    <a class="btn-icon btn-icon--call"
+                       title="Call {{ birthday.name }}"
+                       [attr.href]="'tel:' + birthday.phoneNumber"
+                       (click)="call.emit(birthday); $event.stopPropagation()"
+                    >
+                        <bd-icon svgName="phone-arrow-up" class="icon call-icon"></bd-icon>
+                    </a>
+                }
 
                 <!-- Edit -->
                 <button class="btn-icon btn-icon--edit"
