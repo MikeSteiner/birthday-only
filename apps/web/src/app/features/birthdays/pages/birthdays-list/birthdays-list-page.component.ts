@@ -64,6 +64,7 @@ export class BirthdaysListPageComponent implements OnInit {
   }
 
   call(birthday: Birthday): void {
+    // TODO: store the call press log
     console.log('CALL action', birthday.phoneNumber);
   }
 

@@ -9,7 +9,6 @@ import { DialogRef } from '../dialog-ref';
   selector: 'bd-dialog-container',
   templateUrl: './dialog-container.component.html',
   standalone: true,
-
 })
 export class DialogContainerComponent implements OnDestroy {
   private readonly dialogRef = inject(DialogRef);
