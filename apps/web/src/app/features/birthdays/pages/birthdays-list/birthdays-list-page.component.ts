@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { DialogService } from '@bd-only/bd-dialog';
 import { Birthday, BirthdayDto } from '@bd-only/shared';
 import { AllBirthdaysComponent } from '../../components/all-birthdays/all-birthdays.component';
 import { BirthdayDialogComponent } from '../../components/birthday-dialog/birthday-dialog.component';
 import { BirthdayFocusCardComponent } from '../../components/birthday-focus-card/birthday-focus-card.component';
-import { DialogService } from '../../components/dialog/dialog.service';
+import {
+  ConfirmationDialogComponent,
+  ConfirmationDialogData
+} from '../../components/confirmation-dialog/confirmation-dialog.component';
 import { UpcomingBirthdaysComponent } from '../../components/upcoming-birthdays/upcoming-birthdays.component';
 import { EditBirthdayFormValue } from '../../service/birthday-form.service';
 import { BirthdaysStore } from '../../state/bithdays.store';
@@ -43,15 +47,27 @@ export class BirthdaysListPageComponent implements OnInit {
 
   openAdd(): void {
     this.editingId.set(null);
-    this.openDialog();
+    this.handleOpenAddEditEvent();
   }
 
   openEdit(birthday: BirthdayDto): void {
     this.editingId.set(birthday._id);
-    this.openDialog(birthday);
+    this.handleOpenAddEditEvent(birthday);
   }
 
-  openDialog(birthday?: Birthday): void {
+  cardClick(id: string | null): void {
+    this.birthdaysStore.toggleBirthdaySelection(id);
+  }
+
+  delete(id: string): void {
+    this.handleDeleteBirthdayEvent(id, 'asd');
+  }
+
+  call(birthday: Birthday): void {
+    console.log('CALL action', birthday.phoneNumber);
+  }
+
+  private handleOpenAddEditEvent(birthday?: Birthday): void {
     const data = birthday
       ? birthday
       : undefined;
@@ -77,15 +93,23 @@ export class BirthdaysListPageComponent implements OnInit {
     });
   }
 
-  cardClick(id: string | null): void {
-    this.birthdaysStore.toggleBirthdaySelection(id);
-  }
+  private handleDeleteBirthdayEvent(birthdayId: string, birthdayName: string): void {
+    const dialogData: ConfirmationDialogData = {
+      title: 'Delete Birthday',
+      message: `Are you sure you want to delete ${birthdayName}'s birthday? This action cannot be undone.`,
+      confirmText: 'Delete',
+      cancelText: 'Cancel',
+      type: 'danger',
+    };
 
-  delete(id: string): void {
-    this.birthdaysStore.deleteBirthday(id);
-  }
+    const dialogRef = this.dialogService.open(ConfirmationDialogComponent, {
+      data: dialogData,
+    });
 
-  call(birthday: Birthday): void {
-    console.log('CALL action', birthday.phoneNumber);
+    dialogRef.closed$.subscribe((confirmed) => {
+      if (confirmed) {
+        this.birthdaysStore.deleteBirthday(birthdayId);
+      }
+    });
   }
 }

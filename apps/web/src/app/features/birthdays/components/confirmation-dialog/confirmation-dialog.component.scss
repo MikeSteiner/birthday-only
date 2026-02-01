@@ -1,0 +1,52 @@
+@use 'web/ds-variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 400px;
+  max-width: 500px;
+
+  @media (max-width: ds-variables.$breakpoint-sm) {
+    min-width: 280px;
+  }
+}
+
+.confirmation-dialog__header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ds-color-special-border);
+}
+
+.confirmation-dialog__title {
+  margin: 0;
+  font-size: var(--ds-font-size__xl);
+  font-weight: var(--ds-font-weight__semibold);
+  color: var(--ds-color-text-heading);
+}
+
+.confirmation-dialog__content {
+  padding: 1rem 0;
+}
+
+.confirmation-dialog__message {
+  margin: 0;
+  font-size: var(--ds-font-size__md);
+  color: var(--ds-color-text-body);
+  line-height: 1.6;
+}
+
+.confirmation-dialog__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ds-color-special-border);
+
+  @media (max-width: ds-variables.$breakpoint-sm) {
+    flex-direction: column-reverse;
+
+    button {
+      width: 100%;
+    }
+  }
+}

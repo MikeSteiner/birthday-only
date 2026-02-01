@@ -1,16 +1,17 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { DIALOG_DATA, DialogRef } from '@bd-only/bd-dialog';
 import {
   BirthdayFormService,
   EditBirthdayFormValue,
 } from '../../service/birthday-form.service';
 import { BirthdayFormComponent } from '../birthday-form/birthday-form.component';
-import { DialogRef } from '../dialog/dialog-ref';
-import { DIALOG_DATA } from '../dialog/dialog.tokens';
 
 @Component({
   templateUrl: './birthday-dialog.component.html',
-  standalone: true,
+  styleUrls: ['./birthday-dialog.component.scss'],
   imports: [BirthdayFormComponent],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BirthdayDialogComponent implements OnInit {
   private readonly dialogRef =
