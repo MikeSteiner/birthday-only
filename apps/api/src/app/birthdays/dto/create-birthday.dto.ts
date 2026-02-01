@@ -14,7 +14,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export class CreateBirthdayDto {
   @IsString()
   @MinLength(1)
-  @MaxLength(100)
+  @MaxLength(70)
   name!: string;
 
   @IsInt()
