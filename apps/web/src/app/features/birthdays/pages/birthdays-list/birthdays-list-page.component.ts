@@ -1,15 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { Birthday } from '@birthday-app/shared';
+import { Birthday, BirthdayDto } from '@bd-only/shared';
 import { AllBirthdaysComponent } from '../../components/all-birthdays/all-birthdays.component';
-import {
-  BirthdayDialogComponent,
-  BirthdayDialogInputData,
-  BirthdayDialogResultData,
-} from '../../components/birthday-dialog/birthday-dialog.component';
+import { BirthdayDialogComponent } from '../../components/birthday-dialog/birthday-dialog.component';
 import { BirthdayFocusCardComponent } from '../../components/birthday-focus-card/birthday-focus-card.component';
 import { DialogService } from '../../components/dialog/dialog.service';
 import { UpcomingBirthdaysComponent } from '../../components/upcoming-birthdays/upcoming-birthdays.component';
+import { EditBirthdayFormValue } from '../../service/birthday-form.service';
 import { BirthdaysStore } from '../../state/bithdays.store';
 
 @Component({
@@ -49,19 +46,19 @@ export class BirthdaysListPageComponent implements OnInit {
     this.openDialog();
   }
 
-  openEdit(birthday: Birthday): void {
-    this.editingId.set(birthday._id!);
+  openEdit(birthday: BirthdayDto): void {
+    this.editingId.set(birthday._id);
     this.openDialog(birthday);
   }
 
   openDialog(birthday?: Birthday): void {
-    const data = birthday ? { birthday: birthday } : undefined;
+    const data = birthday
+      ? birthday
+      : undefined;
     const dialogRef = this.dialogService.open<
-      BirthdayDialogResultData,
-      BirthdayDialogInputData
-    >(BirthdayDialogComponent, {
-      data,
-    });
+      EditBirthdayFormValue,
+      EditBirthdayFormValue
+    >(BirthdayDialogComponent, { data });
 
     dialogRef.closed$.subscribe((result) => {
       if (!result) {
@@ -72,9 +69,7 @@ export class BirthdaysListPageComponent implements OnInit {
       if (id) {
         this.birthdaysStore.updateBirthday({
           id,
-          birthday: {
-            ...result,
-          },
+          birthday: { ...result },
         });
       } else {
         this.birthdaysStore.createBirthday(result);
@@ -90,7 +85,7 @@ export class BirthdaysListPageComponent implements OnInit {
     this.birthdaysStore.deleteBirthday(id);
   }
 
-  call(id: string): void {
-    console.log('CALL action', id);
+  call(birthday: Birthday): void {
+    console.log('CALL action', birthday.phoneNumber);
   }
 }
