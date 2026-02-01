@@ -1,24 +1,14 @@
 import {
   Component,
-  ComponentRef,
   inject,
   OnDestroy,
 } from '@angular/core';
-import { DialogRef } from './dialog-ref';
+import { DialogRef } from '../dialog-ref';
 
 @Component({
-  selector: 'app-dialog-container',
+  selector: 'bd-dialog-container',
+  templateUrl: './dialog-container.component.html',
   standalone: true,
-  template: `
-    <div class="dialog-backdrop" (click)="close()">
-      <div
-        class="dialog-panel"
-        (click)="$event.stopPropagation()"
-      >
-        <ng-content />
-      </div>
-    </div>
-  `,
 })
 export class DialogContainerComponent implements OnDestroy {
   private readonly dialogRef = inject(DialogRef);

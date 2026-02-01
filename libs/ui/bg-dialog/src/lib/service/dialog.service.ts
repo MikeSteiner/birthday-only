@@ -6,10 +6,10 @@ import {
   Injector,
   Type,
 } from "@angular/core";
-import { PlatformDataService } from '@bd-only/shared';
-import { DialogContainerComponent } from "./dialog-container.component";
-import { DialogRef } from "./dialog-ref";
-import { DIALOG_DATA } from "./dialog.tokens";
+import { PlatformDataService } from '@bd-only/shared-web';
+import { DialogContainerComponent } from '../components/dialog-container.component';
+import { DialogRef } from '../dialog-ref';
+import { DIALOG_DATA } from '../dialog.tokens';
 
 export interface DialogConfig<TData = unknown> {
   data?: TData;

@@ -1,4 +1,13 @@
 import {
+  BIRTH_YEAR_ERRORS,
+  DAYS_VALIDATION,
+  GREETING_MESSAGE_ERRORS,
+  GREETING_MESSAGE_VALIDATION,
+  MONTHS_INDEX,
+  NAME_VALIDATION,
+  YEAR_VALIDATION,
+} from '@bd-only/shared';
+import {
   IsInt,
   IsOptional,
   IsPhoneNumber,
@@ -9,29 +18,27 @@ import {
   MinLength,
 } from 'class-validator';
 
-const CURRENT_YEAR = new Date().getFullYear();
-
 export class CreateBirthdayDto {
   @IsString()
-  @MinLength(1)
-  @MaxLength(70)
+  @MinLength(NAME_VALIDATION.minLength)
+  @MaxLength(NAME_VALIDATION.maxLength)
   name!: string;
 
   @IsInt()
-  @Min(1)
-  @Max(31)
+  @Min(DAYS_VALIDATION.min)
+  @Max(DAYS_VALIDATION.max)
   birthDay!: number;
 
   @IsInt()
-  @Min(0)
-  @Max(11)
+  @Min(MONTHS_INDEX.min)
+  @Max(MONTHS_INDEX.max)
   birthMonth!: number;
 
   // Birth year validation: if provided, must be between 1900 and current year
   @IsOptional()
   @IsInt({ message: 'Birth year must be an integer value' })
-  @Min(1900, { message: 'Birth year must be 1900 or later' })
-  @Max(CURRENT_YEAR, { message: 'Birth year cannot be in the future' })
+  @Min(YEAR_VALIDATION.min, { message: BIRTH_YEAR_ERRORS.min })
+  @Max(YEAR_VALIDATION.max, { message: BIRTH_YEAR_ERRORS.max })
   birthYear?: number;
 
   // Phone number: optional, but must be valid format if provided
@@ -42,11 +49,11 @@ export class CreateBirthdayDto {
   // Greeting message: optional, 1-500 characters
   @IsOptional()
   @IsString()
-  @MinLength(1, {
-    message: 'Greeting message has to contain at least one valid word',
+  @MinLength(GREETING_MESSAGE_VALIDATION.minLength, {
+    message: GREETING_MESSAGE_ERRORS.maxlength,
   })
-  @MaxLength(500, {
-    message: 'Greeting message length must be 500 characters or less',
+  @MaxLength(GREETING_MESSAGE_VALIDATION.maxLength, {
+    message: GREETING_MESSAGE_ERRORS.maxlength,
   })
   greetingMessage?: string;
 }

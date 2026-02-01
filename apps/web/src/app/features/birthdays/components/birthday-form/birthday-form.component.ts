@@ -1,16 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, input, output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { getMonthsList } from '@bd-only/shared';
 import {
   BIRTH_DAY_ERRORS,
   BIRTH_MONTH_ERRORS,
   BIRTH_YEAR_ERRORS,
-  BirthdayFormService,
-  EditBirthdayFormGroup,
+  getMonthsList,
   GREETING_MESSAGE_ERRORS,
   NAME_ERRORS,
   PHONE_NUMBER_ERRORS,
+} from '@bd-only/shared';
+import {
+  BirthdayFormService,
+  EditBirthdayFormGroup,
 } from '../../service/birthday-form.service';
 import { FormErrorComponent } from '../../ui/form-error/form-error.component';
 

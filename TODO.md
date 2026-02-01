@@ -24,10 +24,10 @@ This file lists additional files and features you may want to add for a producti
 - [ ] Extract shared selects styles
 - [ ] Extract shared textarea styles
 - [ ] Extract shared expansion panel styles
-- [ ] Extract shared dialog library styles
+- [x] Extract shared dialog library styles
 
-- [ ] Add double confirmation when delete
-- [ ] Add show hide phone call icon button when there is a phone entered
+- [x] Add double confirmation when delete
+- [x] Add show hide phone call icon button when there is a phone entered
 - [ ] Add badge today tomorrow coming days ...
 
 ### Feature todos

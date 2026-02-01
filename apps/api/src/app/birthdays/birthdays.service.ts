@@ -50,12 +50,12 @@ export class BirthdaysService {
     const upcomingBirthdays = birthdays.map((birthday) => {
       const thisYearBirthday = new Date(
         currentYear,
-        birthday.birthMonth - 1,
+        birthday.birthMonth, // No need for -1
         birthday.birthDay
       );
       const nextYearBirthday = new Date(
         currentYear + 1,
-        birthday.birthMonth - 1,
+        birthday.birthMonth, // No need for -1
         birthday.birthDay
       );
 
@@ -74,8 +74,7 @@ export class BirthdaysService {
       }
 
       return {
-        // TODO: Fix
-        // ...birthday.toObject(),
+        // TODO: Fix as any
         ...(birthday as any).toObject(),
         daysUntil,
         age,
@@ -90,7 +89,7 @@ export class BirthdaysService {
   async getTodaysBirthdays(): Promise<any[]> {
     const today = new Date();
     const currentDay = today.getDate();
-    const currentMonth = today.getMonth() + 1;
+    const currentMonth = today.getMonth();
 
     const birthdays = await this.birthdayModel
       .find({
