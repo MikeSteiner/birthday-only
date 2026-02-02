@@ -67,18 +67,13 @@
   margin-bottom: 1.25rem;
   font-size: var(--ds-font-size__sm);
   color: rgba(255, 255, 255, 0.75);
-
-  svg {
-    @include mixins.icon-size(2.5rem);
-    color: var(--ds-color-main-yellow);
-  }
 }
 
 .focus-card__action-button {
   width: 10rem;
   justify-self: flex-end;
 
-  svg {
+  .call-icon {
     @include mixins.icon-size(1.5rem);
     color: var(--ds-color-main-white);
   }
@@ -97,6 +92,7 @@
 
 .focus-card__icon {
   @include mixins.icon-size(2.5rem);
+  color: var(--ds-color-main-yellow);
 
   opacity: 0.6;
 }

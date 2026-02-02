@@ -95,7 +95,7 @@ export class BirthdaysListPageComponent implements OnInit {
   }
 
   delete(id: string): void {
-    this.handleDeleteBirthdayEvent(id, 'asd');
+    this.handleDeleteBirthdayEvent(id);
   }
 
   call(birthday: Birthday): void {
@@ -128,12 +128,11 @@ export class BirthdaysListPageComponent implements OnInit {
   }
 
   private handleDeleteBirthdayEvent(
-    birthdayId: string,
-    birthdayName: string,
+    birthdayId: string
   ): void {
     const dialogData: ConfirmationDialogData = {
       title: 'Delete Birthday',
-      message: `Are you sure you want to delete ${birthdayName}'s birthday? This action cannot be undone.`,
+      message: `Are you sure you want to delete this birthday? This action cannot be undone.`,
       confirmText: 'Delete',
       cancelText: 'Cancel',
       type: 'danger',

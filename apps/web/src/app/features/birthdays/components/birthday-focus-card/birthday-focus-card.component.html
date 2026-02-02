@@ -1,21 +1,28 @@
-@if (birthday()) {
+@let birthdayValue = birthday();
+@if (birthdayValue) {
     <div class="focus-card__content">
         <div class="focus-card__label">Next up</div>
-        <h3 class="focus-card__name">{{ birthday()!.name | titlecase }}</h3>
+        <h3 class="focus-card__name">{{ birthdayValue!.name | titlecase }}</h3>
         <div class="focus-card__meta">
             <bd-icon svgName="cake" class="focus-card__icon"></bd-icon>
             <span>
-                {{ birthday()!.birthMonth }} / {{ birthday()!.birthDay }}
-                @if (birthday()!.birthYear) {
-                    • Born {{ birthday()!.birthYear }}
+                {{ birthdayValue!.birthMonth }} / {{ birthdayValue!.birthDay }}
+                @if (birthdayValue!.birthYear) {
+                    • Born {{ birthdayValue!.birthYear }}
                 }
             </span>
         </div>
     </div>
 
-    <button class="btn-primary focus-card__action-button">
-        <bd-icon svgName="phone-arrow-up" class="icon call-icon"/> Call
-    </button>
+    @if (birthdayValue.phoneNumber) {
+        <a class="btn-primary focus-card__action-button"
+           title="Call {{ birthdayValue.name }}"
+           [attr.href]="'tel:' + birthdayValue.phoneNumber"
+           (click)="call.emit(birthdayValue); $event.stopPropagation()"
+        >
+            <bd-icon svgName="phone-arrow-up" class="call-icon"/> Call
+        </a>
+    }
 } @else {
     <div class="focus-card__empty">
         <bd-icon svgName="cake" class="focus-card__icon"></bd-icon>

@@ -1,6 +1,6 @@
 @use 'web/ds-variables' as ds-variables;
 
-.ui-expand-panel-header {
+:host {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
   }
 
   &:focus {
-    outline: 2px solid var(--ds-color-teal__500);
+    outline: 2px solid var(--ds-color-special-teal__500);
     outline-offset: -2px;
   }
 
@@ -38,18 +38,13 @@
     font-size: var(--ds-font-size__sm);
   }
 }
-
 .ui-expand-panel-header__indicator {
   display: flex;
   align-items: center;
   margin-left: 1rem;
   transition: transform 200ms ease;
 
-  ui-icon {
-    transition: transform 200ms ease;
-
-    &.rotated {
-      transform: rotate(180deg);
-    }
+  &.rotated {
+    transform: rotate(180deg);
   }
 }
