@@ -19,16 +19,26 @@ This file lists additional files and features you may want to add for a producti
 
 ## 📋 Optional Additions
 ### MY
+
+- [x] Extract shared dialog library styles
+- [x] Introduce expand-panel
+- [x] Add double confirmation when delete
+- [x] Add show hide phone call icon button when there is a phone entered
+- [ ] Add badge today tomorrow coming days ...
+- [ ] Extract expand panel styles amd add separate lib for it
 - [ ] Extract shared button styles
 - [ ] Extract shared inputs styles
 - [ ] Extract shared selects styles
 - [ ] Extract shared textarea styles
-- [ ] Extract shared expansion panel styles
-- [x] Extract shared dialog library styles
-
-- [x] Add double confirmation when delete
-- [x] Add show hide phone call icon button when there is a phone entered
-- [ ] Add badge today tomorrow coming days ...
+- [ ] Move the code from the `birthday-form.component` 
+  ```
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--d
+  ```
 
 ### Feature todos
 - [ ] Install ng-mock
