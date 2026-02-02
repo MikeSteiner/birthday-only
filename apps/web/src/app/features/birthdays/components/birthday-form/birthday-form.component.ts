@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, input, output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormErrorComponent } from '@bd-only/bd-ui-primitives';
 import {
   BIRTH_DAY_ERRORS,
   BIRTH_MONTH_ERRORS,
@@ -14,7 +15,6 @@ import {
   BirthdayFormService,
   EditBirthdayFormGroup,
 } from '../../service/birthday-form.service';
-import { FormErrorComponent } from '../../ui/form-error/form-error.component';
 
 @Component({
   selector: 'app-birthday-form',
