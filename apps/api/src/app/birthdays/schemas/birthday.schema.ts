@@ -18,7 +18,7 @@ export class Birthday {
   @Prop({
     required: true,
     trim: true,
-    minlength: NAME_VALIDATION.maxLength,
+    minlength: NAME_VALIDATION.minLength,
     maxlength: NAME_VALIDATION.maxLength,
   })
   name!: string;
