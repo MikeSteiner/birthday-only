@@ -49,15 +49,4 @@
     <p class="empty-state">No birthdays yet. Add your first one. <bd-icon svgName="rocket-launch"></bd-icon></p>
 }
 
-<section class="faq-section">
-    @for (faq of faqs; track faq.id) {
-        <bd-ui-expand-panel>
-            <bd-ui-expand-panel-header>
-                {{ faq.question }}
-            </bd-ui-expand-panel-header>
-            <bd-ui-expand-panel-content>
-                {{ faq.answer }}
-            </bd-ui-expand-panel-content>
-        </bd-ui-expand-panel>
-    }
-</section>
+
