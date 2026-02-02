@@ -1,0 +1,55 @@
+@use 'web/ds-variables' as ds-variables;
+
+.ui-expand-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  &:focus {
+    outline: 2px solid var(--ds-color-teal__500);
+    outline-offset: -2px;
+  }
+
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @media (max-width: ds-variables.$breakpoint-sm) {
+    padding: 0.75rem;
+  }
+}
+
+.ui-expand-panel-header__content {
+  flex: 1;
+  font-weight: var(--ds-font-weight__semibold);
+  color: var(--ds-color-text-heading);
+
+  @media (max-width: ds-variables.$breakpoint-sm) {
+    font-size: var(--ds-font-size__sm);
+  }
+}
+
+.ui-expand-panel-header__indicator {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  transition: transform 200ms ease;
+
+  ui-icon {
+    transition: transform 200ms ease;
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+}
