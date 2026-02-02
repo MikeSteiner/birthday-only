@@ -25,6 +25,7 @@ This file lists additional files and features you may want to add for a producti
 - [x] Add double confirmation when delete
 - [x] Add show hide phone call icon button when there is a phone entered
 - [ ] Add badge today tomorrow coming days ...
+- [ ] Optimize focus color use teal or the save cancel buttons color in dialog
 - [ ] Extract expand panel styles amd add separate lib for it
 - [ ] Extract shared button styles
 - [ ] Extract shared inputs styles
