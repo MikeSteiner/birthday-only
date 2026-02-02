@@ -1,0 +1,14 @@
+@use 'web/ds-variables' as ds-variables;
+
+.ui-expand-panel-content {
+  overflow: hidden;
+}
+
+.ui-expand-panel-content__body {
+  padding: 1rem;
+  border-top: 1px solid var(--ds-color-special-border);
+
+  @media (max-width: ds-variables.$breakpoint-sm) {
+    padding: 0.75rem;
+  }
+}

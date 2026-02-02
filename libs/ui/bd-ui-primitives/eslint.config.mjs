@@ -12,7 +12,7 @@ export default [
         'error',
         {
           type: 'attribute',
-          prefix: 'bd-dialog',
+          prefix: 'bd',
           style: 'camelCase',
         },
       ],
@@ -20,7 +20,7 @@ export default [
         'error',
         {
           type: 'element',
-          prefix: 'bd-dialog',
+          prefix: 'bd',
           style: 'kebab-case',
         },
       ],

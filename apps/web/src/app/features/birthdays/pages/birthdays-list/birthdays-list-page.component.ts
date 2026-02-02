@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { DialogService } from '@bd-only/bd-dialog';
+import {
+  ExpandPanelComponent,
+  ExpandPanelContentComponent,
+  ExpandPanelHeaderComponent
+} from '@bd-only/bd-ui-primitives';
 import { Birthday, BirthdayDto } from '@bd-only/shared';
 import { AllBirthdaysComponent } from '../../components/all-birthdays/all-birthdays.component';
 import { BirthdayDialogComponent } from '../../components/birthday-dialog/birthday-dialog.component';
@@ -21,6 +26,9 @@ import { BirthdaysStore } from '../../state/bithdays.store';
     UpcomingBirthdaysComponent,
     AllBirthdaysComponent,
     BirthdayFocusCardComponent,
+    ExpandPanelComponent,
+    ExpandPanelHeaderComponent,
+    ExpandPanelContentComponent,
   ],
   providers: [BirthdaysStore],
   templateUrl: './birthdays-list-page.component.html',
@@ -39,6 +47,33 @@ export class BirthdaysListPageComponent implements OnInit {
   readonly error = this.birthdaysStore.error;
 
   readonly editingId = signal<string | null>(null);
+
+  faqs = [
+    {
+      id: 1,
+      question: 'How do I add a birthday?',
+      answer:
+        'Click the "Add Birthday" button and fill in the required information including name and birth date.',
+    },
+    {
+      id: 2,
+      question: 'Can I set custom reminders?',
+      answer:
+        'Yes! You can customize reminder settings in your profile preferences.',
+    },
+    {
+      id: 3,
+      question: 'Is my data secure?',
+      answer:
+        'Absolutely! We use industry-standard encryption and never share your data with third parties.',
+    },
+    {
+      id: 4,
+      question: 'Can I import birthdays from other apps?',
+      answer:
+        'Currently we support manual entry only, but import features are coming soon!',
+    },
+  ];
 
   ngOnInit(): void {
     this.birthdaysStore.loadAllBirthdays();
@@ -69,9 +104,7 @@ export class BirthdaysListPageComponent implements OnInit {
   }
 
   private handleOpenAddEditEvent(birthday?: Birthday): void {
-    const data = birthday
-      ? birthday
-      : undefined;
+    const data = birthday ? birthday : undefined;
     const dialogRef = this.dialogService.open<
       EditBirthdayFormValue,
       EditBirthdayFormValue
@@ -94,7 +127,10 @@ export class BirthdaysListPageComponent implements OnInit {
     });
   }
 
-  private handleDeleteBirthdayEvent(birthdayId: string, birthdayName: string): void {
+  private handleDeleteBirthdayEvent(
+    birthdayId: string,
+    birthdayName: string,
+  ): void {
     const dialogData: ConfirmationDialogData = {
       title: 'Delete Birthday',
       message: `Are you sure you want to delete ${birthdayName}'s birthday? This action cannot be undone.`,
