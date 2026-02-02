@@ -8,6 +8,8 @@ import { Component, input, output, signal } from '@angular/core';
   imports: [],
   host: {
     '[class.ui-expand-panel-host]': 'true',
+    '[class.expanded]': 'isExpanded()',
+    '[class.disabled]': 'disabled()'
   },
 })
 export class ExpandPanelComponent {

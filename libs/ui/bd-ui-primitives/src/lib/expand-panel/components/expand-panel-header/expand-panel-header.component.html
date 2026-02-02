@@ -1,18 +1,8 @@
-<div
-        class="ui-expand-panel-header"
-        role="button"
-        tabindex="0"
-        [attr.aria-expanded]="panel.isExpanded()"
-        [attr.aria-disabled]="panel.disabled()"
->
-    <div class="ui-expand-panel-header__content">
-        <ng-content />
-    </div>
-
-    <div class="ui-expand-panel-header__indicator">
-        <bd-icon
-                svgName="plus-circle"
-                [class.rotated]="panel.isExpanded()"
-        />
-    </div>
+<div class="ui-expand-panel-header__content">
+    <ng-content />
 </div>
+
+<bd-icon svgName="chevron-down"
+         class="ui-expand-panel-header__indicator"
+         [class.rotated]="panel.isExpanded()"
+></bd-icon>

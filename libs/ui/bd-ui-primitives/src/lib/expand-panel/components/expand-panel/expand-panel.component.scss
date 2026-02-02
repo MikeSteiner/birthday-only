@@ -1,6 +1,6 @@
 @use 'web/ds-variables' as ds-variables;
 
-.ui-expand-panel {
+:host {
   display: block;
   border: 1px solid var(--ds-color-special-border);
   border-radius: var(--ds-radius__md);
@@ -12,11 +12,11 @@
     box-shadow: var(--ds-shadow__row-hover);
   }
 
-  &--expanded {
+  &.expanded {
     border-color: var(--ds-color-teal__500);
   }
 
-  &--disabled {
+  &.disabled {
     opacity: 0.6;
     pointer-events: none;
   }
