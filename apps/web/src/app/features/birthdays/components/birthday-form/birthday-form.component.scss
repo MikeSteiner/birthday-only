@@ -1,6 +1,6 @@
 // TODO: extract to shared lib styles
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 
   label {
     display: block;
@@ -31,7 +31,7 @@
 
     &:focus {
       outline: none;
-      border-color: var(--ds-color-teal__500);
+      border-color: var(--ds-color-special-teal__500);
       box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
     }
 

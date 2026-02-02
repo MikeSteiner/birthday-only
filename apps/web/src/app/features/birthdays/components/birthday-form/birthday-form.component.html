@@ -46,44 +46,51 @@
 
     </div>
 
-    <!-- Year -->
-    <div class="form-group">
-        <label>Year (optional)</label>
-        <input type="number"
-               formControlName="birthYear"
-               min="1900"
-               max="2100"
-               [class.error]="hasError('birthYear')"
-        />
-        <bd-form-error
-                [control]="form().get('birthYear')"
-                [messages]="BIRTH_YEAR_ERRORS"
-        />
-    </div>
+    <bd-ui-expand-panel>
+        <bd-ui-expand-panel-header>
+            More options
+        </bd-ui-expand-panel-header>
+        <bd-ui-expand-panel-content>
+            <!-- Year -->
+            <div class="form-group">
+                <label>Year (optional)</label>
+                <input type="number"
+                       formControlName="birthYear"
+                       min="1900"
+                       max="2100"
+                       [class.error]="hasError('birthYear')"
+                />
+                <bd-form-error
+                        [control]="form().get('birthYear')"
+                        [messages]="BIRTH_YEAR_ERRORS"
+                />
+            </div>
 
-    <!-- Phone Number-->
-    <div class="form-group">
-        <label>Phone number (optional)</label>
-        <input type="tel"
-               formControlName="phoneNumber"
-               [class.error]="hasError('phoneNumber')"
-        />
-        <bd-form-error
-                [control]="form().get('phoneNumber')"
-                [messages]="PHONE_NUMBER_ERRORS"
-        />
-    </div>
+            <!-- Phone Number-->
+            <div class="form-group">
+                <label>Phone number (optional)</label>
+                <input type="tel"
+                       formControlName="phoneNumber"
+                       [class.error]="hasError('phoneNumber')"
+                />
+                <bd-form-error
+                        [control]="form().get('phoneNumber')"
+                        [messages]="PHONE_NUMBER_ERRORS"
+                />
+            </div>
 
-    <!-- Greeting Message-->
-    <div class="form-group">
-        <label>Greeting (optional)</label>
-        <textarea type="text"
-                  formControlName="greetingMessage"
-                  [class.error]="hasError('greetingMessage')"
-        ></textarea>
-        <bd-form-error
-                [control]="form().get('greetingMessage')"
-                [messages]="GREETING_MESSAGE_ERRORS"
-        />
-    </div>
+            <!-- Greeting Message-->
+            <div class="form-group">
+                <label>Greeting (optional)</label>
+                <textarea type="text"
+                          formControlName="greetingMessage"
+                          [class.error]="hasError('greetingMessage')"
+                ></textarea>
+                <bd-form-error
+                        [control]="form().get('greetingMessage')"
+                        [messages]="GREETING_MESSAGE_ERRORS"
+                />
+            </div>
+        </bd-ui-expand-panel-content>
+    </bd-ui-expand-panel>
 </form>

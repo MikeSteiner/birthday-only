@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  border: 1px solid var(--ds-color-special-border);
+  border-radius: var(--ds-radius__md);
+  background: var(--ds-color-background-bg5);
+  overflow: hidden;
+  transition: all 200ms ease;
+
+  &:hover {
+    box-shadow: var(--ds-shadow__row-hover);
+  }
+
+  &.expanded {
+    border-color: var(--ds-color-special-border);
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
