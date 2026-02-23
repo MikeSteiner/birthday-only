@@ -12,6 +12,8 @@ import { BirthdayDto, getYearDiffFromNow } from '@bd-only/shared';
 export class BirthdayFocusCardComponent {
   readonly birthday = input<BirthdayDto | null>();
 
+  protected readonly getYearDiffFromNow = getYearDiffFromNow;
+
   createBirthdayDate(): Date | undefined {
     const bday = this.birthday();
     if (!bday) {
@@ -20,6 +22,4 @@ export class BirthdayFocusCardComponent {
 
     return new Date(bday.birthYear ?? 1900, bday.birthMonth, bday.birthDay);
   }
-
-  protected readonly getYearDiffFromNow = getYearDiffFromNow;
 }
