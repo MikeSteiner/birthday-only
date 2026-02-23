@@ -12,27 +12,14 @@
   --ds-badge-background-color: var(--ds-color-background-bg3);
 }
 
+/**
+ * Next 3 properties are useful in case the class is used around sub elements
+ *  <span class="ds-badge ds-badge--info">
+ *   <span class="value">123.44</span>
+ *   <span>EUR</span>
+ *  </span>
+ */
 .ds-badge {
-  &[data-ds-color="green"] {
-    --ds-badge-text-color: var(--ds-color-main-green);
-    --ds-badge-background-color: rgba(var(--ds-color-main-green-rgb), 0.10);
-  }
-
-  &[data-ds-color="orange"] {
-    --ds-badge-text-color: var(--ds-color-main-orange);
-    --ds-badge-background-color: rgba(var(--ds-color-main-orange-rgb), 0.10);
-  }
-
-  &[data-ds-color="blue"] {
-    --ds-badge-text-color: var(--ds-color-main-blue);
-    --ds-badge-background-color: rgba(var(--ds-color-chart-blue-rgb), 0.10);
-  }
-
-  &[data-ds-color="grey"] {
-    --ds-badge-text-color: var(--ds-color-main-white);
-    --ds-badge-background-color: rgba(var(--ds-color-main-grey-rgb), 0.60);
-  }
-
   width: fit-content;
   height: fit-content;
   min-width: 5rem;
@@ -61,3 +48,29 @@
   font-style: var(--ds-badge-font-style);
   font-weight: 600;
 }
+
+.ds-badge--error {
+  --ds-badge-text-color: var(--ds-color-main-red);
+  --ds-badge-background-color: rgba(var(--ds-color-main-red-rgb), 0.10);
+}
+
+.ds-badge--warning {
+  --ds-badge-text-color: var(--ds-color-main-orange);
+  --ds-badge-background-color: rgba(var(--ds-color-main-orange-rgb), 0.10);
+}
+
+.ds-badge--success {
+  --ds-badge-text-color: var(--ds-color-main-green);
+  --ds-badge-background-color: rgba(var(--ds-color-main-green-rgb), 0.10);
+}
+
+.ds-badge--info {
+  --ds-badge-text-color: var(--ds-color-main-blue);
+  --ds-badge-background-color: rgba(var(--ds-color-main-blue-rgb), 0.10);
+}
+
+.ds-badge--grey {
+  --ds-badge-text-color: var(--ds-color-main-white);
+  --ds-badge-background-color: rgba(var(--ds-color-main-black-rgb), 0.10);
+}
+
