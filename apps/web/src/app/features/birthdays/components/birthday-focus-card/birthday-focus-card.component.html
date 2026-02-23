@@ -1,16 +1,25 @@
-@if (birthday()) {
+@let birthdayDto = birthday();
+
+@if (birthdayDto) {
     <div class="focus-card__content">
         <div class="focus-card__label">Next up</div>
-        <h3 class="focus-card__name">{{ birthday()!.name | titlecase }}</h3>
+        <h3 class="focus-card__name">{{ birthdayDto!.name | titlecase }}</h3>
+
+        @let birthdayDate = createBirthdayDate();
         <div class="focus-card__meta">
             <bd-icon svgName="cake" class="focus-card__icon"></bd-icon>
             <span>
-                {{ birthday()!.birthMonth }} / {{ birthday()!.birthDay }}
-                @if (birthday()!.birthYear) {
-                    • Born {{ birthday()!.birthYear }}
+                {{ birthdayDate | date:'dd MMMM' }}
+                @if (birthdayDto?.birthYear) {
+                    • Born {{ birthdayDto.birthYear }}
                 }
             </span>
         </div>
+        @if (birthdayDto?.birthYear) {
+            <div>
+                Turning {{ getYearDiffFromNow(birthdayDto?.birthYear) }}
+            </div>
+        }
     </div>
 
     <button class="btn-primary focus-card__action-button">
