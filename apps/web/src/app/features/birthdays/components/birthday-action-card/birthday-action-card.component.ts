@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { BirthdayDto } from '@bd-only/shared';
 
@@ -5,7 +6,7 @@ import { BirthdayDto } from '@bd-only/shared';
   selector: 'app-birthday-action-card',
   templateUrl: './birthday-action-card.component.html',
   styleUrls: ['./birthday-action-card.component.scss'],
-  imports: [],
+  imports: [DatePipe],
   standalone: true,
   host: {
     '(click)': 'onCardClick()',
@@ -21,5 +22,13 @@ export class BirthdayActionCardComponent {
   onCardClick(): void {
     const birthdayId = this.birthday()._id ?? null;
     this.cardClick.emit(birthdayId);
+  }
+
+  createBirthdayDate(): Date {
+    return new Date(
+      this.birthday().birthYear ?? 1900,
+      this.birthday().birthMonth,
+      this.birthday().birthDay
+    );
   }
 }

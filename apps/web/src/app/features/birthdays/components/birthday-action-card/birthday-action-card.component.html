@@ -1,16 +1,20 @@
+@let birthdayDto = birthday();
 <div class="birthday-card__avatar">
-    {{ birthday().name[0] }}
+    {{ birthdayDto.name[0] }}
 </div>
 
 <div class="birthday-card__content">
-    <p class="birthday-card__name">{{ birthday().name }}</p>
+    <p class="birthday-card__name">{{ birthdayDto.name }}</p>
 
-    <p class="birthday-card__meta">
-        {{ birthday().birthMonth }}/{{ birthday().birthDay }}
-        @if (birthday().birthYear) {
-            • {{ birthday().birthYear }}
+    @let birthdayDate = createBirthdayDate();
+    <span class="birthday-card__meta">
+
+        <!-- 23 February, 1990 -->
+        {{ birthdayDate | date:'dd MMMM' }}
+        @if (birthdayDto.birthYear) {
+            • {{ birthdayDto.birthYear }}
         }
-    </p>
+    </span>
 </div>
 
 <div class="birthday-card__actions">
