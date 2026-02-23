@@ -22,9 +22,15 @@
         }
     </div>
 
-    <button class="btn-primary focus-card__action-button">
-        <bd-icon svgName="phone-arrow-up" class="icon call-icon"/> Call
-    </button>
+    @if (birthdayDto.phoneNumber) {
+        <a class="btn-primary focus-card__action-button"
+           title="Call {{ birthdayDto.name }}"
+           [attr.href]="'tel:' + birthdayDto.phoneNumber"
+           (click)="call.emit(birthdayDto); $event.stopPropagation()"
+        >
+            <bd-icon svgName="phone-arrow-up" class="call-icon"/> Call
+        </a>
+    }
 } @else {
     <div class="focus-card__empty">
         <bd-icon svgName="cake" class="focus-card__icon"></bd-icon>

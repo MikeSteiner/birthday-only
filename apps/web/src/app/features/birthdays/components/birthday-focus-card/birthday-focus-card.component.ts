@@ -1,7 +1,7 @@
 import { DatePipe, TitleCasePipe } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { BdIconComponent } from '@bd-only/bd-icons';
-import { BirthdayDto, getYearDiffFromNow } from '@bd-only/shared';
+import { Birthday, BirthdayDto, getYearDiffFromNow } from '@bd-only/shared';
 
 @Component({
   selector: 'app-birthday-focus-card',
@@ -11,6 +11,8 @@ import { BirthdayDto, getYearDiffFromNow } from '@bd-only/shared';
 })
 export class BirthdayFocusCardComponent {
   readonly birthday = input<BirthdayDto | null>();
+
+  readonly call = output<Birthday>();
 
   protected readonly getYearDiffFromNow = getYearDiffFromNow;
 

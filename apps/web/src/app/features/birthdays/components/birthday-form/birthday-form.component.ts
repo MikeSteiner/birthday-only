@@ -2,6 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, input, output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {
+  ExpandPanelComponent,
+  ExpandPanelContentComponent,
+  ExpandPanelHeaderComponent,
+  FormErrorComponent
+} from '@bd-only/bd-ui-primitives';
+import {
   BIRTH_DAY_ERRORS,
   BIRTH_MONTH_ERRORS,
   BIRTH_YEAR_ERRORS,
@@ -14,12 +20,18 @@ import {
   BirthdayFormService,
   EditBirthdayFormGroup,
 } from '../../service/birthday-form.service';
-import { FormErrorComponent } from '../../ui/form-error/form-error.component';
 
 @Component({
   selector: 'app-birthday-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormErrorComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormErrorComponent,
+    ExpandPanelComponent,
+    ExpandPanelHeaderComponent,
+    ExpandPanelContentComponent,
+  ],
   templateUrl: './birthday-form.component.html',
   styleUrls: ['./birthday-form.component.scss'],
 })
@@ -39,7 +51,8 @@ export class BirthdayFormComponent {
   protected readonly GREETING_MESSAGE_ERRORS = GREETING_MESSAGE_ERRORS;
 
   hasError(controlName: keyof EditBirthdayFormGroup): boolean {
-    const control = this.birthdayFormService.editBirthdayForm.controls[controlName];
+    const control =
+      this.birthdayFormService.editBirthdayForm.controls[controlName];
     return !!(control.invalid && control.touched);
   }
 }

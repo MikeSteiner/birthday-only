@@ -1,0 +1,8 @@
+<div class="ui-expand-panel-header__content">
+    <ng-content />
+</div>
+
+<bd-icon svgName="chevron-down"
+         class="ui-expand-panel-header__indicator"
+         [class.rotated]="panel.isExpanded()"
+></bd-icon>

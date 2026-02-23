@@ -1,0 +1,10 @@
+@if (panel.isExpanded()) {
+    <div class="ui-expand-panel-content"
+         role="region"
+         [@expandCollapse]
+    >
+        <div class="ui-expand-panel-content__body">
+            <ng-content/>
+        </div>
+    </div>
+}
