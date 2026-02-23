@@ -19,24 +19,13 @@
             <app-birthday-action-card [birthday]="birthday"
                                       [isSelected]="isSelected"
                                       (cardClick)="cardClick.emit($event)">
-
-<!--TODO: add logic for changing the badge label and color-->
-<!--                <span class="badge"-->
-<!--                      [class.badge&#45;&#45;today]="bd.daysUntil === 0"-->
-<!--                      [class.badge&#45;&#45;tomorrow]="bd.daysUntil === 1"-->
-<!--                      [class.badge&#45;&#45;soon]="bd.daysUntil > 1"-->
-<!--                >-->
-<!--                  @if (bd.daysUntil === 0) {-->
-<!--                      Today 🎉-->
-<!--                  } @else if (bd.daysUntil === 1) {-->
-<!--                      Tomorrow-->
-<!--                  } @else {-->
-<!--                      {{ bd.daysUntil }} days-->
-<!--                  }-->
-<!--                </span>-->
-                <span class="ds-badge" data-ds-color="orange">
-                    {{ 'Today' | titlecase }}
-                </span>
+                @if (birthday.daysUntil === 0) {
+                  <span class="ds-badge ds-badge--success">{{ 'Today' | titlecase }}</span>
+                } @else if (birthday.daysUntil === 1) {
+                  <span class="ds-badge ds-badge--info">{{ 'Tomorrow' | titlecase }}</span>
+                } @else {
+                  <span class="ds-badge">In {{ birthday.daysUntil }} days</span>
+                }
 
             </app-birthday-action-card>
         }
