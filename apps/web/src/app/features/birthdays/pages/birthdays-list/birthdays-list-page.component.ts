@@ -16,7 +16,7 @@ import {
 } from '../../components/confirmation-dialog/confirmation-dialog.component';
 import { UpcomingBirthdaysComponent } from '../../components/upcoming-birthdays/upcoming-birthdays.component';
 import { EditBirthdayFormValue } from '../../service/birthday-form.service';
-import { BirthdaysStore } from '../../state/bithdays.store';
+import { BirthdaysStore } from '../../state/birthdays.store';
 
 @Component({
   selector: 'app-birthdays-list-page',

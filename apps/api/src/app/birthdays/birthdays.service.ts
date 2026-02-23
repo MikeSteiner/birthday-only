@@ -42,9 +42,15 @@ export class BirthdaysService {
     return this.birthdayModel.findOneAndDelete({ _id: id, userId }).exec();
   }
 
+  // TODO: use date-fns and refactor make the code easier
   async getUpcoming(userId: string, days = 30): Promise<any[]> {
     const birthdays = await this.findAll(userId);
-    const today = new Date();
+    const now = new Date();
+    const today = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
     const currentYear = today.getFullYear();
 
     const upcomingBirthdays = birthdays.map((birthday) => {
@@ -68,10 +74,9 @@ export class BirthdaysService {
         (targetDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
       );
 
-      let age: number | undefined;
-      if (birthday.birthYear) {
-        age = targetDate.getFullYear() - birthday.birthYear;
-      }
+      const age = birthday.birthYear
+        ? targetDate.getFullYear() - birthday.birthYear
+        : undefined;
 
       return {
         // TODO: Fix as any
@@ -87,7 +92,12 @@ export class BirthdaysService {
   }
 
   async getTodaysBirthdays(): Promise<any[]> {
-    const today = new Date();
+    const now = new Date();
+    const today = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
     const currentDay = today.getDate();
     const currentMonth = today.getMonth();
 

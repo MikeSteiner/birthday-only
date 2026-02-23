@@ -31,11 +31,11 @@ export class BirthdaysStore {
   private readonly state = signalState(initialState);
 
   // SELECTORS
-  readonly birthdays = computed(() => this.state().birthdays);
-  readonly upcomingBirthdays = computed(() => this.state().upcomingBirthdays);
-  readonly selectedBirthdayId = computed(() => this.state().selectedBirthdayId);
-  readonly loading = computed(() => this.state().loading);
-  readonly error = computed(() => this.state().error);
+  readonly birthdays = this.state.birthdays;
+  readonly upcomingBirthdays = this.state.upcomingBirthdays;
+  readonly selectedBirthdayId = this.state.selectedBirthdayId;
+  readonly loading = this.state.loading;
+  readonly error = this.state.error;
 
   // Computed selectors
   readonly hasBirthdays = computed(() => this.birthdays().length > 0);
