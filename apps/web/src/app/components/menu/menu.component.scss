@@ -1,0 +1,33 @@
+@use 'web/mixins' as mixins;
+
+.btn-icon--user-context {
+  color: var(--ds-color-main-white);
+
+  .icon {
+    @include mixins.icon-size(1.5rem);
+    color: var(--ds-color-main-white);
+  }
+}
+
+/* ===============================
+   MENU
+   =============================== */
+.menu {
+  min-width: 10rem;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  background: var(--ds-color-special-yellow-dark);
+  box-shadow: var(--ds-shadow__md);
+
+  &-item {
+    width: 100%;
+    background: transparent;
+  }
+}

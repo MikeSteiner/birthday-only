@@ -40,34 +40,3 @@
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.95);
 }
-
-/* ===============================
-   ACTIONS
-   =============================== */
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.user-email {
-  font-size: var(--ds-font-size__sm);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--ds-radius__full);
-
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: var(--ds-font-weight__medium);
-}
-
-/* Header button refinement */
-.header-actions .btn-secondary {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.35);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-}

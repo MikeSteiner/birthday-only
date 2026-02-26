@@ -55,12 +55,7 @@
         <h1 class="app-logo__text">BDOnly</h1>
     </div>
 
-    @if (user()) {
-        <div class="header-actions">
-            <span class="user-email">{{ user()!.email }}</span>
-            <button type="button" class="btn-secondary" (click)="logout.emit()">
-                Logout
-            </button>
-        </div>
-    }
+    <app-menu [user]="user()"
+              (logout)="logout.emit()"/>
+
 </header>
