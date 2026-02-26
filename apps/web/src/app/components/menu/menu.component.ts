@@ -46,4 +46,8 @@ export class MenuComponent {
   export(): void {
     console.log('Export click');
   }
+
+  import(): void {
+    console.log('Export click');
+  }
 }
