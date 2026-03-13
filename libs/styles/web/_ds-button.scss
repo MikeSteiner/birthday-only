@@ -134,7 +134,8 @@ button {
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--ds-color-main-blue-rgb), 0.25);
+    box-shadow:
+            0 0 0 3px rgba(var(--ds-color-main-blue-rgb), 0.25);
   }
 
   &:disabled {

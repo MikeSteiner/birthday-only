@@ -55,7 +55,22 @@
         <h1 class="app-logo__text">BDOnly</h1>
     </div>
 
-    <app-menu [user]="user()"
-              (logout)="logout.emit()"/>
-
+    @if (user()) {
+        <div class="header-actions">
+            <span class="user-email">{{ user()!.email }}</span>
+            <input
+                #fileInput
+                type="file"
+                accept=".json"
+                class="file-input-hidden"
+                (change)="onFileSelected($event)"
+            />
+            <button type="button" class="btn-secondary" (click)="triggerImport()">
+                Import
+            </button>
+            <button type="button" class="btn-secondary" (click)="logout.emit()">
+                Logout
+            </button>
+        </div>
+    }
 </header>
