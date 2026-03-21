@@ -31,7 +31,11 @@ export class ImportExportService {
     const skipped = items.length - incomingAndNewItems.length;
 
     if (incomingAndNewItems.length === 0) {
-      return { imported: 0, skipped, errors: 0 };
+      return {
+        imported: 0,
+        skipped,
+        errors: 0
+      };
     }
 
     const docs = incomingAndNewItems.map(({ item, uniqueKey }) => ({ ...item, userId, uniqueKey }));
