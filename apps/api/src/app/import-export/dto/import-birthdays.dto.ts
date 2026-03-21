@@ -19,6 +19,13 @@ import {
   ValidateNested,
 } from 'class-validator';
 
+// TODO: Error Handling & Validation Issues
+// ⚠️ Critical: Review validation in import-birthdays.dto.ts (60+ lines)
+//
+// Ensure strong type validation for imported data
+// Add validation for date formats, duplicate entries, and malformed CSV/JSON
+// Consider file size limits to prevent memory issues
+// Suggestion: Add decorators like @IsDateString(), @IsNotEmpty(), and @MaxLength() from class-validator
 export class ImportBirthdayItemDto {
   @IsString()
   @MinLength(NAME_VALIDATION.minLength)

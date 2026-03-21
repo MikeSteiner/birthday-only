@@ -6,6 +6,11 @@ import { Birthday, BirthdayDocument } from '../birthdays/schemas/birthday.schema
 import { birthdayUniqueKey } from '../utils/birthday.utils';
 import { ImportBirthdayItemDto } from './dto/import-birthdays.dto';
 
+// TODO: Large Service File
+// ⚠️ Architecture: import-export.service.ts has 61 lines of additions
+//
+// Consider if it's handling too many responsibilities
+// May benefit from splitting import/export logic into separate services
 @Injectable()
 export class ImportExportService {
   constructor(
