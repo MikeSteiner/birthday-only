@@ -3,7 +3,7 @@ import {
   GREETING_MESSAGE_VALIDATION,
   MONTHS_INDEX,
   NAME_VALIDATION,
-  YEAR_VALIDATION
+  YEAR_VALIDATION,
 } from '@bd-only/shared';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
@@ -63,10 +63,13 @@ export class Birthday {
     type: String,
   })
   greetingMessage?: string;
+
+  @Prop({ required: true, type: String })
+  uniqueKey!: string;
 }
 
 export const BirthdaySchema = SchemaFactory.createForClass(Birthday);
 
 // Indexes for efficient queries
 BirthdaySchema.index({ userId: 1, birthMonth: 1, birthDay: 1 });
-BirthdaySchema.index({ userId: 1, name: 1 });
+BirthdaySchema.index({ userId: 1, uniqueKey: 1 }, { unique: true });
