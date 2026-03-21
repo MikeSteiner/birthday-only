@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { birthdayUniqueKey } from '../utils/birthday.utils';
 import { CreateBirthdayDto } from './dto/create-birthday.dto';
 import { Birthday, BirthdayDocument } from './schemas/birthday.schema';
 
@@ -14,6 +15,7 @@ export class BirthdaysService {
     return this.birthdayModel.create({
       ...dto,
       userId,
+      uniqueKey: birthdayUniqueKey(dto.name, dto.birthDay, dto.birthMonth),
     });
   }
 
@@ -28,13 +30,17 @@ export class BirthdaysService {
     return this.birthdayModel.findOne({ _id: id, userId }).exec();
   }
 
-  async update(
-    id: string,
-    userId: string,
-    birthdayData: Partial<Birthday>
-  ): Promise<Birthday | null> {
+  async update(id: string, userId: string, birthdayData: Partial<Birthday>): Promise<Birthday | null> {
+    const { name, birthDay, birthMonth } = birthdayData;
+    if (name === undefined || birthDay === undefined || birthMonth === undefined) {
+      return null;
+    }
+
+    const birthdayUpdatedData = { ...birthdayData };
+    birthdayUpdatedData.uniqueKey = birthdayUniqueKey(name, birthDay, birthMonth);
+
     return this.birthdayModel
-      .findOneAndUpdate({ _id: id, userId }, birthdayData, { new: true })
+      .findOneAndUpdate({ _id: id, userId }, birthdayUpdatedData, { new: true })
       .exec();
   }
 
