@@ -16,9 +16,9 @@ export class ImportExportApiService {
       name: item.name,
       birthDay: item.birthDay,
       birthMonth: item.birthMonth,
-      ...(item.birthYear != null && { birthYear: item.birthYear }),
-      ...(item.phoneNumber != null && { phoneNumber: item.phoneNumber }),
-      ...(item.greetingMessage != null && { greetingMessage: item.greetingMessage }),
+      ...(item.birthYear != null ? { birthYear: item.birthYear } : {}),
+      ...(item.phoneNumber != null ? { phoneNumber: item.phoneNumber } : {}),
+      ...(item.greetingMessage != null ? { greetingMessage: item.greetingMessage } : {}),
     }));
 
     return this.http.post<ImportResult>(`${this.apiUrl}/birthdays`, { birthdays });
