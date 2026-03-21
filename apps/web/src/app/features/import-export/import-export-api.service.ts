@@ -1,13 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Birthday } from '@bd-only/shared';
+import { Birthday, ImportResult } from '@bd-only/shared';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-
-export interface ImportResult {
-  imported: number;
-  errors: number;
-}
 
 @Injectable({
   providedIn: 'root',

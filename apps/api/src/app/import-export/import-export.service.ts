@@ -1,10 +1,10 @@
+import { ImportResult } from '@bd-only/shared';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Birthday, BirthdayDocument } from '../birthdays/schemas/birthday.schema';
 import { birthdayUniqueKey } from '../utils/birthday.utils';
 import { ImportBirthdayItemDto } from './dto/import-birthdays.dto';
-import { ImportResult } from './models/import-birthdays.models';
 
 @Injectable()
 export class ImportExportService {
