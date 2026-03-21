@@ -19,6 +19,7 @@ export class AppHeaderComponent {
     this.fileInput()?.nativeElement.click();
   }
 
+  // TODO: Review this method and the complete file input
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];

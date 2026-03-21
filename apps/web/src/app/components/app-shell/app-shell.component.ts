@@ -22,6 +22,7 @@ export class AppShellComponent {
     this.authService.logout();
   }
 
+  // TODO: Refactor the method. Remove try catch. Remove window object
   onImportFile(file: File): void {
     const reader = new FileReader();
     reader.onload = (e) => {
