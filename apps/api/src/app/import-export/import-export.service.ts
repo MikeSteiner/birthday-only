@@ -12,52 +12,50 @@ export class ImportExportService {
     @InjectModel(Birthday.name) private birthdayModel: Model<BirthdayDocument>
   ) {}
 
-  async importBirthdays(
-    userId: string,
-    items: ImportBirthdayItemDto[]
-  ): Promise<ImportResult> {
-    const incomingItemsWithKey = items.map((item) => ({
+  async importBirthdays(userId: string, items: ImportBirthdayItemDto[]): Promise<ImportResult> {
+    const itemsWithKeys = this.attachUniqueKeys(items);
+    const newItems = await this.filterExisting(userId, itemsWithKeys);
+    const skipped = items.length - newItems.length;
+
+    if (newItems.length === 0) {
+      return { imported: 0, skipped, errors: 0 };
+    }
+
+    return this.insertItems(userId, newItems, skipped);
+  }
+
+  private attachUniqueKeys(items: ImportBirthdayItemDto[]) {
+    return items.map((item) => ({
       item,
       uniqueKey: birthdayUniqueKey(item.name, item.birthDay, item.birthMonth),
     }));
-    const incomingKeys = incomingItemsWithKey.map((i) => i.uniqueKey);
+  }
+
+  private async filterExisting(userId: string, itemsWithKeys: ReturnType<typeof this.attachUniqueKeys>) {
+    const incomingKeys = itemsWithKeys.map((i) => i.uniqueKey);
 
     const existing = await this.birthdayModel
       .find({ userId, uniqueKey: { $in: incomingKeys } })
       .select('uniqueKey')
       .lean();
+
     const existingKeys = new Set(existing.map((b) => b.uniqueKey));
-    const incomingAndNewItems = incomingItemsWithKey.filter((i) => !existingKeys.has(i.uniqueKey));
-    const skipped = items.length - incomingAndNewItems.length;
+    return itemsWithKeys.filter((i) => !existingKeys.has(i.uniqueKey));
+  }
 
-    if (incomingAndNewItems.length === 0) {
-      return {
-        imported: 0,
-        skipped,
-        errors: 0
-      };
-    }
-
-    const docs = incomingAndNewItems.map(({ item, uniqueKey }) => ({ ...item, userId, uniqueKey }));
+  private async insertItems(
+    userId: string,
+    newItems: ReturnType<typeof this.attachUniqueKeys>,
+    skipped: number
+  ): Promise<ImportResult> {
+    const docs = newItems.map(({ item, uniqueKey }) => ({ ...item, userId, uniqueKey }));
 
     try {
-      const result = await this.birthdayModel.insertMany(docs, {
-        ordered: false,
-      });
-
-      return {
-        imported: result.length,
-        skipped,
-        errors: 0
-      };
+      const result = await this.birthdayModel.insertMany(docs, { ordered: false });
+      return { imported: result.length, skipped, errors: 0 };
     } catch (e: unknown) {
       const inserted = (e as { insertedDocs?: unknown[] }).insertedDocs?.length ?? 0;
-
-      return {
-        imported: inserted,
-        skipped,
-        errors: incomingAndNewItems.length - inserted
-      };
+      return { imported: inserted, skipped, errors: newItems.length - inserted };
     }
   }
 }
