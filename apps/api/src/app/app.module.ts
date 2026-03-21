@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ScheduleModule } from '@nestjs/schedule';
 import { AuthModule } from './auth/auth.module';
 import { BirthdaysModule } from './birthdays/birthdays.module';
+import { ImportExportModule } from './import-export/import-export.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { UsersModule } from './users/users.module';
 
@@ -31,6 +32,7 @@ import { UsersModule } from './users/users.module';
     AuthModule,
     UsersModule,
     BirthdaysModule,
+    ImportExportModule,
     NotificationsModule,
   ],
 })

@@ -1,6 +1,7 @@
 <app-header
         [user]="currentUser()"
         (logout)="logout()"
+        (importFile)="onImportFile($event)"
 />
 
 <main class="shell-content">
